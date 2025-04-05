@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bojlp01kk8kij"]
 
-[ext_resource type="Script" uid="uid://c54jtmi2nbyyx" path="res://octopus/octopus.gd" id="1_4dj2o"]
+[ext_resource type="Script" uid="uid://c54jtmi2nbyyx" path="res://ai/octopus.gd" id="1_4dj2o"]
 [ext_resource type="Texture2D" uid="uid://d25ubmebtep8n" path="res://assets/octopus-Sheet.png" id="1_5s0kf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22eyu"]
@@ -31,7 +31,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_3xrof")
 }],
 "loop": true,
-"name": &"default",
+"name": &"swim",
 "speed": 6.0
 }]
 
@@ -46,4 +46,4 @@ shape = SubResource("CircleShape2D_22eyu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, 0)
 sprite_frames = SubResource("SpriteFrames_nnwgy")
-frame_progress = 0.0535581
+animation = &"swim"

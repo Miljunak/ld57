@@ -1,99 +1,109 @@
 extends CharacterBody2D
 class_name Submariner
 
+@export var SPEED = 70.0
+@export var WATER_RESISTANCE = 3
+@export var BUOYANCY_CHANGE_SPEED = 1
+@export var MIN_BUOYANCY = -150
+@export var MAX_BUOYANCY = 150
+@export var MAX_DESCENT = 150
+@export var MAX_PROPULSION = 9
+@export var PROPULSION_CHANGE_SPEED = 0.1
+@export var INPUT_THRESHOLD = 1
+@export var BUYANCY_CLAMP = 20
+@export var MAX_HEALTH = 100
+@export var BOUYANCY = 0
+@export var PROPULSION = 0.0
 
-@export
-var SPEED = 70.0
-
-@export
-var WATER_RESISTANCE = 3
-@export
-var BUOYANCY_CHANGE_SPEED = 1
-@export
-var MIN_BUOYANCY = -150
-@export
-var MAX_BUOYANCY = 150
-var buoyancy = 0
-var propulsion = 0.
-@export
-var MAX_PROPULSION = 9
-@export
-var PROPULSION_CHANGE_SPEED = 0.1
-@export
-var INPUT_THRESHOLD = 1
-@export
-var MAX_DESCENT = 150
-
+var health = MAX_HEALTH
 var engineUpgradeMaxSpeed = 1
 var throtelChangeSpeedBonus = 0
 
-const BUYANCY_CLAMP= 20
-const ui_control_eps = 1
+@onready var waterLevel = $Camera2D/Control/tank/waterLevel
+@onready var lever = $Camera2D/Control/lever
+@onready var sprite = $aSprite
+
+var is_immune = false
+var immunity_timer = 0.0
+const IMMUNITY_DURATION = 1.5
+var flicker_timer = 0.0
+const FLICKER_RATE = 0.1
+
+func _ready() -> void:
+	waterLevel.play("default")
 
 func _physics_process(delta: float) -> void:
+	update_immunity(delta)
+	update_flicker(delta)
+
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
-		propulsion += direction * (PROPULSION_CHANGE_SPEED +throtelChangeSpeedBonus)
+		PROPULSION += direction * (PROPULSION_CHANGE_SPEED + throtelChangeSpeedBonus)
+
 	var clampedProp = clamp_propulsion()
-	set_lever_pos(propulsion)
-	velocity.x += ( (clampedProp* SPEED *engineUpgradeMaxSpeed) - (WATER_RESISTANCE*velocity.x)) * delta 
-	
+	set_lever_pos(PROPULSION)
+	velocity.x += ((clampedProp * SPEED * engineUpgradeMaxSpeed) - (WATER_RESISTANCE * velocity.x)) * delta
+
 	var verticalDirection := Input.get_axis("ui_up", "ui_down")
 	if verticalDirection:
-		buoyancy += verticalDirection  * BUOYANCY_CHANGE_SPEED
-	var clampedBoyancy = clamp_bouyancy(buoyancy)
-	set_boyancy_level(buoyancy)
-	velocity.y = min(max((((clampedBoyancy * 10) - (WATER_RESISTANCE*velocity.y))*delta + velocity.y),-MAX_DESCENT),MAX_DESCENT)
+		BOUYANCY += verticalDirection * BUOYANCY_CHANGE_SPEED
+
+	var clampedBoyancy = clamp_bouyancy()
+	set_boyancy_level(BOUYANCY)
+	velocity.y = min(max((((clampedBoyancy * 10) - (WATER_RESISTANCE * velocity.y)) * delta + velocity.y), -MAX_DESCENT), MAX_DESCENT)
+
 	if clampedBoyancy < -BUYANCY_CLAMP:
 		$Camera2D/Control/direction.play("up")
 	elif clampedBoyancy > BUYANCY_CLAMP:
 		$Camera2D/Control/direction.play("down")
 	else:
 		$Camera2D/Control/direction.play("neutral")
-	
+
 	if clampedProp != 0:
-		$aSprite.flip_h  = clampedProp < 0
+		$aSprite.flip_h = clampedProp < 0
 		$aSprite.play("running")
 	else:
 		$aSprite.play("idle")
-	print(buoyancy,", ", clampedBoyancy)
 
 	move_and_slide()
-	
-@onready
-var waterLevel = $Camera2D/Control/tank/waterLevel
+
 func set_boyancy_level(boya):
-	waterLevel.offset.y = - boya * 0.1
+	waterLevel.offset.y = -boya * 0.1
 
-func _ready() -> void:
-	waterLevel.play("default")
+func clamp_propulsion() -> float:
+	PROPULSION = clamp(PROPULSION, -MAX_PROPULSION, MAX_PROPULSION)
+	return 0.0 if abs(PROPULSION) < INPUT_THRESHOLD else PROPULSION
 
-func clamp_propulsion():
-	var local_prop = propulsion
-	if propulsion > MAX_PROPULSION:
-		local_prop = MAX_PROPULSION
-		propulsion = MAX_PROPULSION
-	if propulsion < -MAX_PROPULSION:
-		propulsion = -MAX_PROPULSION
-		local_prop = -MAX_PROPULSION
-	if propulsion < INPUT_THRESHOLD and propulsion > -INPUT_THRESHOLD:
-		local_prop = 0
-	return local_prop
-
-func clamp_bouyancy(_buoyancy: float) -> float:
-	#clamp low bouyances so that u can float in place
-	if _buoyancy < BUYANCY_CLAMP and _buoyancy > -BUYANCY_CLAMP:
-		return 0
-	buoyancy = max(min(_buoyancy, MAX_BUOYANCY),MIN_BUOYANCY)
-	return buoyancy
-
-@onready
-var lever = $Camera2D/Control/lever
-#func _process(delta: float) -> void:
-	#lever.offset.x = propulsion * 10
+func clamp_bouyancy() -> float:
+	var clamped_bouyancy = clamp(BOUYANCY, MIN_BUOYANCY, MAX_BUOYANCY)
+	return 0.0 if abs(BOUYANCY) < BUYANCY_CLAMP else clamped_bouyancy
 
 func set_lever_pos(prop):
 	lever.offset.x = prop * 10
-	
+
 func control_throtel():
 	pass
+
+func apply_damage(amount: int) -> void:
+	if is_immune:
+		return
+	health -= amount
+	health = clamp(health, 0, MAX_HEALTH)
+	print(health)
+	is_immune = true
+	immunity_timer = IMMUNITY_DURATION
+	flicker_timer = 0.0 
+
+func update_immunity(delta: float) -> void:
+	if is_immune:
+		immunity_timer -= delta
+		if immunity_timer <= 0.0:
+			is_immune = false
+			sprite.modulate.a = 1
+
+func update_flicker(delta: float) -> void:
+	if is_immune:
+		flicker_timer += delta
+		if flicker_timer >= FLICKER_RATE:
+			sprite.modulate.a = 1 if sprite.modulate.a == 0 else 0
+			flicker_timer = 0
