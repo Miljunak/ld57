@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5v7yfcrisik3"]
+[gd_scene load_steps=4 format=3 uid="uid://c5v7yfcrisik3"]
 
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_cdtuc"]
 [ext_resource type="PackedScene" uid="uid://bojlp01kk8kij" path="res://ai/octopus.tscn" id="2_4y04f"]
+[ext_resource type="PackedScene" uid="uid://b7u6clpxv7lbj" path="res://ai/big_worm.tscn" id="3_6a41o"]
 
 [node name="MjPlaygroundScene" type="Node2D"]
 
@@ -13,3 +14,5 @@ WATER_RESISTANCE = 2
 
 [node name="Octopus" parent="." instance=ExtResource("2_4y04f")]
 position = Vector2(166, 68)
+
+[node name="BigWorm" parent="." instance=ExtResource("3_6a41o")]
