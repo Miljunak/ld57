@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtn0he7lbljg0"]
+[gd_scene load_steps=12 format=3 uid="uid://dtn0he7lbljg0"]
 
 [ext_resource type="Script" uid="uid://dm0oxik1xe4gm" path="res://submarine/submarine.gd" id="1_w62jf"]
 [ext_resource type="SpriteFrames" uid="uid://bdvcu18bk08gg" path="res://submarine/spriteFrames.tres" id="2_s87fy"]
@@ -7,6 +7,8 @@
 [ext_resource type="SpriteFrames" uid="uid://bk40prdsdscxe" path="res://scenes/directionArrows.tres" id="5_06tcg"]
 [ext_resource type="Texture2D" uid="uid://b24a2nre2wnnh" path="res://assets/ui/ballastTank.png" id="5_4167o"]
 [ext_resource type="SpriteFrames" uid="uid://bo2iyso0rvuup" path="res://scenes/waterFrames.tres" id="6_fcveb"]
+[ext_resource type="Texture2D" uid="uid://bwewj70s7jq40" path="res://assets/broken-screen.png" id="8_my3mo"]
+[ext_resource type="Texture2D" uid="uid://cbh68oyq0bicq" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa563"]
 radius = 14.0
@@ -76,3 +78,19 @@ position = Vector2(0, 23)
 sprite_frames = ExtResource("6_fcveb")
 frame = 1
 frame_progress = 0.536956
+
+[node name="BrokenScreenOverlay" type="TextureRect" parent="."]
+offset_left = -289.0
+offset_top = -161.0
+offset_right = 863.0
+offset_bottom = 487.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_my3mo")
+
+[node name="DamagedScreenOverlay" type="TextureRect" parent="."]
+offset_left = -289.0
+offset_top = -161.0
+offset_right = 863.0
+offset_bottom = 487.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_j40ms")

@@ -18,23 +18,32 @@ class_name Submariner
 var health = MAX_HEALTH
 var engineUpgradeMaxSpeed = 1
 var throtelChangeSpeedBonus = 0
-
-@onready var waterLevel = $Camera2D/Control/tank/waterLevel
-@onready var lever = $Camera2D/Control/lever
-@onready var sprite = $aSprite
-
 var is_immune = false
 var immunity_timer = 0.0
 const IMMUNITY_DURATION = 1.5
 var flicker_timer = 0.0
 const FLICKER_RATE = 0.1
+var shake_timer = 0.0
+const SHAKE_INTENSITY = 10
+const SHAKE_DURATION = 0.2
+
+@onready var waterLevel = $Camera2D/Control/tank/waterLevel
+@onready var lever = $Camera2D/Control/lever
+@onready var sprite = $aSprite
+@onready var camera = $Camera2D
+@onready var broken_screen_overlay = $BrokenScreenOverlay
+@onready var damaged_screen_overlay = $DamagedScreenOverlay
 
 func _ready() -> void:
 	waterLevel.play("default")
+	broken_screen_overlay.visible = false
+	damaged_screen_overlay.visible = false
 
 func _physics_process(delta: float) -> void:
 	update_immunity(delta)
 	update_flicker(delta)
+	update_shake(delta)
+	update_screen_effects()
 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -92,7 +101,8 @@ func apply_damage(amount: int) -> void:
 	print(health)
 	is_immune = true
 	immunity_timer = IMMUNITY_DURATION
-	flicker_timer = 0.0 
+	flicker_timer = 0.0
+	shake_timer = SHAKE_DURATION
 
 func update_immunity(delta: float) -> void:
 	if is_immune:
@@ -107,3 +117,23 @@ func update_flicker(delta: float) -> void:
 		if flicker_timer >= FLICKER_RATE:
 			sprite.modulate.a = 1 if sprite.modulate.a == 0 else 0
 			flicker_timer = 0
+
+func update_shake(delta: float) -> void:
+	if shake_timer > 0:
+		camera.offset = Vector2(randf_range(-SHAKE_INTENSITY, SHAKE_INTENSITY), randf_range(-SHAKE_INTENSITY, SHAKE_INTENSITY))
+		shake_timer -= delta
+	else:
+		camera.offset = Vector2.ZERO
+
+func update_screen_effects() -> void:
+	if health <= MAX_HEALTH * 0.33:
+		broken_screen_overlay.visible = true
+		broken_screen_overlay.modulate.a = 0.3 + (0.7 * (1.0 - (health / MAX_HEALTH)))
+		damaged_screen_overlay.visible = false
+	elif health <= MAX_HEALTH * 0.66:
+		damaged_screen_overlay.visible = true
+		damaged_screen_overlay.modulate.a = 0.3 + (0.7 * (1.0 - (health / MAX_HEALTH)))
+		broken_screen_overlay.visible = false
+	else:
+		broken_screen_overlay.visible = false
+		damaged_screen_overlay.visible = false
