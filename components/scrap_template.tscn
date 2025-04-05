@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbfjhwlo1k8fr"]
+
+[ext_resource type="Script" uid="uid://do21qrae7lq66" path="res://scenes/scrap.gd" id="1_dnsyq"]
+[ext_resource type="Texture2D" uid="uid://d3t1pvessn5o1" path="res://assets/shoe.png" id="2_upsyg"]
+[ext_resource type="Texture2D" uid="uid://m5snyu36ktfb" path="res://assets/ui/space_ico.png" id="3_ath1p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f7d5k"]
+radius = 17.0294
+
+[node name="scrap" type="Area2D"]
+script = ExtResource("1_dnsyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_upsyg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_f7d5k")
+
+[node name="keyHint" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-19, -19)
+texture = ExtResource("3_ath1p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
