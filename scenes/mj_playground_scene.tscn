@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5v7yfcrisik3"]
+
+[ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_cdtuc"]
+
+[node name="MjPlaygroundScene" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_cdtuc")]
+position = Vector2(-1, 0)
+WATER_RESISTANCE = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
