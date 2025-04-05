@@ -16,3 +16,4 @@ WATER_RESISTANCE = 2
 position = Vector2(166, 68)
 
 [node name="BigWorm" parent="." instance=ExtResource("3_6a41o")]
+position = Vector2(-230, -35)

@@ -35,6 +35,7 @@ const SHAKE_DURATION = 0.2
 @onready var damaged_screen_overlay = $DamagedScreenOverlay
 @onready var low_health_sfx: AudioStreamPlayer2D = $LowHealthSFX
 @onready var damage_sfx: AudioStreamPlayer2D = $DamageSFX
+@onready var explosion = $Explosion
 
 var low_health_played = false
 
@@ -42,6 +43,7 @@ func _ready() -> void:
 	waterLevel.play("default")
 	broken_screen_overlay.visible = false
 	damaged_screen_overlay.visible = false
+	explosion.visible = false
 	low_health_sfx.stop()
 
 func _physics_process(delta: float) -> void:
@@ -101,6 +103,7 @@ func control_throtel():
 func apply_damage(amount: int) -> void:
 	if is_immune:
 		return
+	
 	health -= amount
 	health = clamp(health, 0, MAX_HEALTH)
 	print(health)
@@ -132,7 +135,10 @@ func update_shake(delta: float) -> void:
 		camera.offset = Vector2.ZERO
 
 func update_screen_effects() -> void:
-	if health <= MAX_HEALTH * 0.33:
+	if health == 0:
+		explosion.visible = true
+		explosion.play("explode")
+	elif health <= MAX_HEALTH * 0.33:
 		broken_screen_overlay.visible = true
 		broken_screen_overlay.modulate.a = 0.3 + (0.7 * (1.0 - (health / MAX_HEALTH)))
 		damaged_screen_overlay.visible = false

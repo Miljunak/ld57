@@ -35,5 +35,5 @@ func update_swim_direction():
 		sprite.flip_h = swim_direction.x < 0
 
 func check_player_collision():
-	if player != null and position.distance_to(player.position) < 40:
+	if player != null and position.distance_to(player.position) < 30:
 		player.apply_damage(25)
