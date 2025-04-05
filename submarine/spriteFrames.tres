@@ -1,0 +1,58 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bdvcu18bk08gg"]
+
+[ext_resource type="Texture2D" uid="uid://q3dv7i3uxnmt" path="res://assets/submariner.png" id="1_md2lo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0og4o"]
+atlas = ExtResource("1_md2lo")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27018"]
+atlas = ExtResource("1_md2lo")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyif0"]
+atlas = ExtResource("1_md2lo")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru66u"]
+atlas = ExtResource("1_md2lo")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obc4r"]
+atlas = ExtResource("1_md2lo")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py68m"]
+atlas = ExtResource("1_md2lo")
+region = Rect2(320, 0, 64, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0og4o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27018")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyif0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru66u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obc4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py68m")
+}],
+"loop": true,
+"name": &"running",
+"speed": 50.0
+}]
