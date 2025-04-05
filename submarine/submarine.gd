@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Submariner
 
 
 @export
@@ -23,16 +24,19 @@ var INPUT_THRESHOLD = 1
 @export
 var MAX_DESCENT = 150
 
+var engineUpgradeMaxSpeed = 1
+var throtelChangeSpeedBonus = 0
+
 const BUYANCY_CLAMP= 20
 const ui_control_eps = 1
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
-		propulsion += direction * PROPULSION_CHANGE_SPEED 
+		propulsion += direction * (PROPULSION_CHANGE_SPEED +throtelChangeSpeedBonus)
 	var clampedProp = clamp_propulsion()
 	set_lever_pos(propulsion)
-	velocity.x += ( (clampedProp* SPEED) - (WATER_RESISTANCE*velocity.x)) * delta 
+	velocity.x += ( (clampedProp* SPEED *engineUpgradeMaxSpeed) - (WATER_RESISTANCE*velocity.x)) * delta 
 	
 	var verticalDirection := Input.get_axis("ui_up", "ui_down")
 	if verticalDirection:

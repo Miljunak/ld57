@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://i8fdn5mjpqg4"]
+[gd_scene load_steps=4 format=3 uid="uid://i8fdn5mjpqg4"]
 
 [ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="1_64foh"]
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_jpd4k"]
+[ext_resource type="PackedScene" uid="uid://prwkmgih00pp" path="res://bazunia/bazunia.tscn" id="3_ybuwm"]
 
 [node name="PlaygroundScene" type="Node2D"]
 
@@ -9,6 +10,9 @@
 position = Vector2(7, 71)
 texture = ExtResource("1_64foh")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_jpd4k")]
+[node name="Submariner" parent="." instance=ExtResource("1_jpd4k")]
 position = Vector2(-1, 0)
 WATER_RESISTANCE = 2
+
+[node name="bazunia" parent="." instance=ExtResource("3_ybuwm")]
+position = Vector2(165, 4)

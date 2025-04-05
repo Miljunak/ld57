@@ -1,0 +1,165 @@
+[gd_scene load_steps=7 format=3 uid="uid://prwkmgih00pp"]
+
+[ext_resource type="Script" uid="uid://cuighw3s7lp2r" path="res://bazunia/bazunia.gd" id="1_t0pju"]
+[ext_resource type="Texture2D" uid="uid://m5snyu36ktfb" path="res://assets/ui/space_ico.png" id="2_infe6"]
+[ext_resource type="Theme" uid="uid://bjy2d8mupfxbd" path="res://components/ui_theme.tres" id="3_t104p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_infe6"]
+size = Vector2(102, 100)
+
+[sub_resource type="Gradient" id="Gradient_infe6"]
+colors = PackedColorArray(0.727675, 0.452969, 0.600146, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t104p"]
+gradient = SubResource("Gradient_infe6")
+fill_from = Vector2(0.747863, 0.316239)
+
+[node name="bazunia" type="Node2D"]
+script = ExtResource("1_t0pju")
+
+[node name="keyHint" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -43)
+texture = ExtResource("2_infe6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_infe6")
+
+[node name="baza_gui" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="baza_gui"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("3_t104p")
+
+[node name="Upgrades" type="Panel" parent="baza_gui/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 278.0
+offset_top = 30.0
+offset_right = 884.0
+offset_bottom = 550.0
+
+[node name="moneysDisplayer" type="Label" parent="baza_gui/Control/Upgrades"]
+layout_mode = 0
+offset_left = 485.0
+offset_top = 8.0
+offset_right = 596.0
+offset_bottom = 43.0
+
+[node name="Label" type="Label" parent="baza_gui/Control/Upgrades"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 12.0
+offset_right = 185.0
+offset_bottom = 35.0
+text = "CAVE BAZE"
+
+[node name="throtle_speed" type="Control" parent="baza_gui/Control/Upgrades"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 22.0
+offset_top = 146.0
+offset_right = 225.0
+offset_bottom = 228.0
+
+[node name="Panel" type="Panel" parent="baza_gui/Control/Upgrades/throtle_speed"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 179.0
+offset_bottom = 53.0
+
+[node name="Label2" type="Label" parent="baza_gui/Control/Upgrades/throtle_speed"]
+offset_left = -2.0
+offset_top = -26.0
+offset_right = 174.0
+offset_bottom = -3.0
+text = "throttle change speed:"
+
+[node name="Button" type="Button" parent="baza_gui/Control/Upgrades/throtle_speed"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 19.0
+offset_right = 174.0
+offset_bottom = 50.0
+text = "upgrade"
+
+[node name="price" type="Label" parent="baza_gui/Control/Upgrades/throtle_speed"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 18.0
+offset_right = 79.0
+offset_bottom = 49.0
+text = "0 $"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upgradeProgress" type="ProgressBar" parent="baza_gui/Control/Upgrades/throtle_speed"]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = 18.0
+step = 1.0
+show_percentage = false
+
+[node name="engine" type="Control" parent="baza_gui/Control/Upgrades"]
+anchors_preset = 0
+offset_left = 26.0
+offset_top = 62.0
+offset_right = 229.0
+offset_bottom = 144.0
+
+[node name="Panel" type="Panel" parent="baza_gui/Control/Upgrades/engine"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 179.0
+offset_bottom = 53.0
+
+[node name="Label2" type="Label" parent="baza_gui/Control/Upgrades/engine"]
+offset_left = -2.0
+offset_top = -26.0
+offset_right = 174.0
+offset_bottom = -3.0
+text = "engine:"
+
+[node name="Button" type="Button" parent="baza_gui/Control/Upgrades/engine"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 19.0
+offset_right = 174.0
+offset_bottom = 50.0
+text = "upgrade"
+
+[node name="price" type="Label" parent="baza_gui/Control/Upgrades/engine"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 18.0
+offset_right = 79.0
+offset_bottom = 49.0
+text = "0 $"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upgradeProgress" type="ProgressBar" parent="baza_gui/Control/Upgrades/engine"]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = 18.0
+step = 1.0
+show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_t104p")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_exited"]
+[connection signal="pressed" from="baza_gui/Control/Upgrades/throtle_speed/Button" to="." method="_on_throtel_speed"]
+[connection signal="pressed" from="baza_gui/Control/Upgrades/engine/Button" to="." method="_on_engine_upgrade"]
