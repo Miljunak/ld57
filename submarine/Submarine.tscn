@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtn0he7lbljg0"]
+[gd_scene load_steps=17 format=3 uid="uid://dtn0he7lbljg0"]
 
 [ext_resource type="Script" uid="uid://dm0oxik1xe4gm" path="res://submarine/submarine.gd" id="1_w62jf"]
 [ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="2_j40ms"]
@@ -9,9 +9,9 @@
 [ext_resource type="SpriteFrames" uid="uid://bk40prdsdscxe" path="res://scenes/directionArrows.tres" id="5_06tcg"]
 [ext_resource type="Texture2D" uid="uid://b24a2nre2wnnh" path="res://assets/ui/ballastTank.png" id="5_4167o"]
 [ext_resource type="SpriteFrames" uid="uid://bo2iyso0rvuup" path="res://scenes/waterFrames.tres" id="6_fcveb"]
-[ext_resource type="Texture2D" uid="uid://bwewj70s7jq40" path="res://assets/broken-screen.png" id="8_my3mo"]
-[ext_resource type="Texture2D" uid="uid://cbh68oyq0bicq" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
 [ext_resource type="Texture2D" uid="uid://sh346ei3yayi" path="res://assets/lightmask.png" id="8_my3mo"]
+[ext_resource type="Texture2D" uid="uid://ds4cjsv3mn3f5" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
+[ext_resource type="Texture2D" uid="uid://cq5qv4tqimy0s" path="res://assets/broken-screen.png" id="11_namuc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa563"]
 radius = 14.0
@@ -62,7 +62,14 @@ offset = Vector2(29.415, 0)
 texture_scale = 0.05
 script = ExtResource("4_88vpn")
 
+[node name="Area2D" type="Area2D" parent="searchLight"]
+scale = Vector2(0.144906, 0.149219)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="searchLight/Area2D"]
+polygon = PackedVector2Array(0, 1, 286, 91, 425, -2, 291, -88)
+
 [node name="aSprite" type="AnimatedSprite2D" parent="."]
+light_mask = 1024
 texture_filter = 1
 position = Vector2(-3, 0)
 sprite_frames = ExtResource("2_s87fy")
@@ -121,37 +128,22 @@ frame = 1
 frame_progress = 0.536956
 
 [node name="BrokenScreenOverlay" type="TextureRect" parent="."]
+light_mask = 1024
 offset_left = -289.0
 offset_top = -161.0
 offset_right = 863.0
 offset_bottom = 487.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_my3mo")
+texture = ExtResource("11_namuc")
 
 [node name="DamagedScreenOverlay" type="TextureRect" parent="."]
+light_mask = 1024
 offset_left = -289.0
 offset_top = -161.0
 offset_right = 863.0
 offset_bottom = 487.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_j40ms")
-[node name="PointLight2D" type="PointLight2D" parent="."]
-light_mask = 0
-position = Vector2(0, 1)
-color = Color(0.190762, 0.190762, 0.190762, 1)
-energy = 9.94
-blend_mode = 2
-range_z_max = 256
-range_layer_max = 5
-texture = SubResource("GradientTexture2D_my3mo")
-texture_scale = 9.12
-height = 14.0
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(173, 67)
-rotation = 0.34338
-scale = Vector2(6.90104, 6.70154)
-energy = 1.29
-range_z_max = 555
-texture = ExtResource("8_my3mo")
-texture_scale = 0.05
+[connection signal="area_entered" from="searchLight/Area2D" to="searchLight" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="searchLight/Area2D" to="searchLight" method="_on_monster_entered"]

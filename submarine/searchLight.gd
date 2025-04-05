@@ -18,3 +18,10 @@ func _process(delta: float) -> void:
 	var lightSteer = Input.get_axis("searchLightDown","searchLightUp")
 	if lightSteer != 0:
 		rotation += lightSteer * rotation_speed * delta
+	
+
+func _on_monster_entered(body: Node2D) -> void:
+	print(body.get_groups())
+	if body.is_in_group("monsters"):
+		print("potwur")
+	print(body)
