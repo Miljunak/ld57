@@ -55,6 +55,7 @@ func _on_engine_upgrade() -> void:
 var throtel_upgrades = [{"throtel_change_bonus":.2,"cost":100},
 					   {"throtel_change_bonus":.1,"cost":200},
 					   {"throtel_change_bonus":.1,"cost":300},
+					   {"throtel_change_bonus":.05,"cost":300},
 					   {"throtel_change_bonus":.1,"cost":400}]
 var currentThrotel = 0
 

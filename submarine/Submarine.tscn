@@ -15,7 +15,7 @@ height = 58.0
 [sub_resource type="LabelSettings" id="LabelSettings_fcveb"]
 font_size = 14
 
-[node name="Submarine" type="CharacterBody2D"]
+[node name="Submariner" type="CharacterBody2D"]
 script = ExtResource("1_w62jf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -27,7 +27,7 @@ texture_filter = 1
 position = Vector2(-3, 0)
 sprite_frames = ExtResource("2_s87fy")
 animation = &"running"
-frame_progress = 0.998005
+frame_progress = 0.44057
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 0)
