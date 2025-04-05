@@ -29,8 +29,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="sharky" type="Node2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["mosnters"]]
+collision_layer = 2
 script = ExtResource("1_tr148")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.99999, -3)
+rotation = -3.14159
+shape = SubResource("CapsuleShape2D_1a6oh")
 
 [node name="Area2D" type="Area2D" parent="."]
 

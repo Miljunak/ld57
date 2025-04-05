@@ -25,5 +25,6 @@ func _physics_process(delta: float) -> void:
 func set_random_direction() -> void:
 	var random_deviation = Vector2(randf_range(-random_factor, random_factor), randf_range(-random_factor, random_factor))
 	var direction_to_player = (player.position - position).normalized()
-	
+	# Create a random direction around the player
 	swim_direction = (direction_to_player + random_deviation).normalized()
+	$AnimatedSprite2D.flip_h = swim_direction.x > 0
