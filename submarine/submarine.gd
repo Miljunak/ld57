@@ -23,6 +23,8 @@ var INPUT_THRESHOLD = 1
 @export
 var MAX_DESCENT = 150
 
+const ui_control_eps = 0.5
+
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -36,7 +38,13 @@ func _physics_process(delta: float) -> void:
 		buoyancy += verticalDirection  * BUOYANCY_CHANGE_SPEED
 	var clampedBoyancy = clamp_bouyancy(buoyancy)
 	set_boyancy_level(buoyancy)
-	velocity.y = min(max((clampedBoyancy* delta + velocity.y),-MAX_DESCENT),MAX_DESCENT)
+	velocity.y = min(max((((clampedBoyancy * 10) - (WATER_RESISTANCE*velocity.y))*delta + velocity.y),-MAX_DESCENT),MAX_DESCENT)
+	if velocity.y < -ui_control_eps:
+		$Camera2D/Control/direction.play("up")
+	elif velocity.y > ui_control_eps:
+		$Camera2D/Control/direction.play("down")
+	else:
+		$Camera2D/Control/direction.play("neutral")
 	
 	if clampedProp != 0:
 		$aSprite.flip_h  = clampedProp < 0
@@ -50,7 +58,7 @@ func _physics_process(delta: float) -> void:
 @onready
 var waterLevel = $Camera2D/Control/tank/waterLevel
 func set_boyancy_level(boya):
-	waterLevel.offset.y = boya * 0.1
+	waterLevel.offset.y = - boya * 0.1
 
 func _ready() -> void:
 	waterLevel.play("default")
@@ -69,7 +77,7 @@ func clamp_propulsion():
 
 func clamp_bouyancy(_buoyancy: float) -> float:
 	#clamp low bouyances so that u can float in place
-	if _buoyancy < 45 and _buoyancy > -45:
+	if _buoyancy < 20 and _buoyancy > -20:
 		return 0
 	buoyancy = max(min(_buoyancy, MAX_BUOYANCY),MIN_BUOYANCY)
 	return buoyancy

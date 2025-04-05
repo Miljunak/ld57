@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtn0he7lbljg0"]
+[gd_scene load_steps=10 format=3 uid="uid://dtn0he7lbljg0"]
 
 [ext_resource type="Script" uid="uid://dm0oxik1xe4gm" path="res://submarine/submarine.gd" id="1_w62jf"]
 [ext_resource type="SpriteFrames" uid="uid://bdvcu18bk08gg" path="res://submarine/spriteFrames.tres" id="2_s87fy"]
 [ext_resource type="Texture2D" uid="uid://dbd6x38m7wm6i" path="res://assets/ui/thotel-lever.png" id="3_s87fy"]
 [ext_resource type="Texture2D" uid="uid://d02iq2q4b24bq" path="res://assets/ui/throtel-body.png" id="3_t4o5t"]
+[ext_resource type="SpriteFrames" uid="uid://bk40prdsdscxe" path="res://scenes/directionArrows.tres" id="5_06tcg"]
 [ext_resource type="Texture2D" uid="uid://b24a2nre2wnnh" path="res://assets/ui/ballastTank.png" id="5_4167o"]
 [ext_resource type="SpriteFrames" uid="uid://bo2iyso0rvuup" path="res://scenes/waterFrames.tres" id="6_fcveb"]
 
@@ -52,6 +53,11 @@ texture_filter = 1
 position = Vector2(290, 314)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_s87fy")
+
+[node name="direction" type="AnimatedSprite2D" parent="Camera2D/Control"]
+position = Vector2(508, 301)
+sprite_frames = ExtResource("5_06tcg")
+animation = &"neutral"
 
 [node name="tank" type="Sprite2D" parent="Camera2D/Control"]
 position = Vector2(540, 295)
