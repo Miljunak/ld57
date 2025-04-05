@@ -1,14 +1,10 @@
-extends Node2D
+extends base_monster
 
 var max_speed = 400
 var acceleration_duration = 0.8
 var deceleration_duration = 0.5
 var swim_cycle_duration = acceleration_duration + deceleration_duration
 
-var swim_direction = Vector2(1, 0)
-var swim_timer = 0.0
-
-@onready var player = get_node("../Submariner")
 @onready var sprite = $AnimatedSprite2D
 
 func _ready():

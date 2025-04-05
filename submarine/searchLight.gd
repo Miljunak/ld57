@@ -21,7 +21,5 @@ func _process(delta: float) -> void:
 	
 
 func _on_monster_entered(body: Node2D) -> void:
-	print(body.get_groups())
-	if body.is_in_group("monsters"):
-		print("potwur")
-	print(body)
+	if (body.is_in_group("mosnters")):
+		body.trigger_scared()

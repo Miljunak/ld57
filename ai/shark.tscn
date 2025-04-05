@@ -30,12 +30,14 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["mosnters"]]
-collision_layer = 2
+disable_mode = 2
+collision_layer = 6
+collision_mask = 3
 script = ExtResource("1_tr148")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.99999, -3)
-rotation = -3.14159
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["mosnters"]]
+position = Vector2(-3, 0)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1a6oh")
 
 [node name="Area2D" type="Area2D" parent="."]
