@@ -77,6 +77,7 @@ offset_right = 179.0
 offset_bottom = 53.0
 
 [node name="Label2" type="Label" parent="baza_gui/Control/Upgrades/throtle_speed"]
+layout_mode = 0
 offset_left = -2.0
 offset_top = -26.0
 offset_right = 174.0
@@ -124,6 +125,7 @@ offset_right = 179.0
 offset_bottom = 53.0
 
 [node name="Label2" type="Label" parent="baza_gui/Control/Upgrades/engine"]
+layout_mode = 0
 offset_left = -2.0
 offset_top = -26.0
 offset_right = 174.0

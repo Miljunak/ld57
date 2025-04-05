@@ -1,19 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtn0he7lbljg0"]
+[gd_scene load_steps=19 format=3 uid="uid://dtn0he7lbljg0"]
 
 [ext_resource type="Script" uid="uid://dm0oxik1xe4gm" path="res://submarine/submarine.gd" id="1_w62jf"]
 [ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="2_j40ms"]
 [ext_resource type="SpriteFrames" uid="uid://bdvcu18bk08gg" path="res://submarine/spriteFrames.tres" id="2_s87fy"]
 [ext_resource type="Texture2D" uid="uid://dbd6x38m7wm6i" path="res://assets/ui/thotel-lever.png" id="3_s87fy"]
 [ext_resource type="Texture2D" uid="uid://d02iq2q4b24bq" path="res://assets/ui/throtel-body.png" id="3_t4o5t"]
-[ext_resource type="Script" uid="uid://dlieu4ufdlg85" path="res://submarine/searchLight.gd" id="4_88vpn"]
+[ext_resource type="Script" path="res://submarine/searchLight.gd" id="4_88vpn"]
 [ext_resource type="SpriteFrames" uid="uid://bk40prdsdscxe" path="res://scenes/directionArrows.tres" id="5_06tcg"]
 [ext_resource type="Texture2D" uid="uid://b24a2nre2wnnh" path="res://assets/ui/ballastTank.png" id="5_4167o"]
 [ext_resource type="SpriteFrames" uid="uid://bo2iyso0rvuup" path="res://scenes/waterFrames.tres" id="6_fcveb"]
-[ext_resource type="Texture2D" uid="uid://bwewj70s7jq40" path="res://assets/broken-screen.png" id="8_my3mo"]
-[ext_resource type="Texture2D" uid="uid://cbh68oyq0bicq" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
-[ext_resource type="AudioStream" uid="uid://cl8ircppdy81y" path="res://assets/sounds/low_health_sfx.mp3" id="10_88vpn"]
-[ext_resource type="AudioStream" uid="uid://bt32acqcox70n" path="res://assets/sounds/damage_sfx.mp3" id="11_jrqhm"]
 [ext_resource type="Texture2D" uid="uid://sh346ei3yayi" path="res://assets/lightmask.png" id="8_my3mo"]
+[ext_resource type="Texture2D" uid="uid://cbh68oyq0bicq" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
+[ext_resource type="Texture2D" uid="uid://bwewj70s7jq40" path="res://assets/broken-screen.png" id="11_namuc"]
+[ext_resource type="AudioStream" uid="uid://cl8ircppdy81y" path="res://assets/sounds/low_health_sfx.mp3" id="13_dcpsv"]
+[ext_resource type="AudioStream" uid="uid://bt32acqcox70n" path="res://assets/sounds/damage_sfx.mp3" id="14_1c0mj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa563"]
 radius = 14.0
@@ -35,6 +35,7 @@ font_size = 14
 script = ExtResource("1_w62jf")
 
 [node name="Tempbackground" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(42, 37)
 texture = ExtResource("2_j40ms")
 
@@ -66,6 +67,8 @@ script = ExtResource("4_88vpn")
 
 [node name="Area2D" type="Area2D" parent="searchLight"]
 scale = Vector2(0.144906, 0.149219)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="searchLight/Area2D"]
 polygon = PackedVector2Array(0, 1, 286, 91, 425, -2, 291, -88)
@@ -148,13 +151,12 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_j40ms")
 
 [node name="LowHealthSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_88vpn")
+stream = ExtResource("13_dcpsv")
 
 [node name="DamageSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_jrqhm")
-volume_db = 3.748
-pitch_scale = 0.26
-panning_strength = 1.73
+stream = ExtResource("14_1c0mj")
+volume_db = 0.937
+pitch_scale = 0.24
 
 [connection signal="area_entered" from="searchLight/Area2D" to="searchLight" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="searchLight/Area2D" to="searchLight" method="_on_monster_entered"]
