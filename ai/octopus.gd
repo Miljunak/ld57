@@ -5,12 +5,11 @@ var acceleration_duration = 0.8
 var deceleration_duration = 0.5
 var swim_cycle_duration = acceleration_duration + deceleration_duration
 
-@onready var sprite = $AnimatedSprite2D
-
 func _ready():
 	sprite.play("swim")
 
 func _physics_process(delta: float) -> void:
+	check_scared_timer(delta)
 	var prev_cycle_time = fmod(swim_timer, swim_cycle_duration)
 	swim_timer += delta
 	var cycle_time = fmod(swim_timer, swim_cycle_duration)
@@ -24,10 +23,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		speed = max_speed * (1.0 - ((cycle_time - acceleration_duration) / deceleration_duration))
 
+	set_random_direction()
+	check_player_collision()
 	if (player):
 		position += swim_direction * speed * delta
-
-	check_player_collision()
 
 func update_swim_direction():
 	if player != null:
