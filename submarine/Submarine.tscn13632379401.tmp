@@ -9,8 +9,6 @@
 [ext_resource type="SpriteFrames" uid="uid://bk40prdsdscxe" path="res://scenes/directionArrows.tres" id="5_06tcg"]
 [ext_resource type="Texture2D" uid="uid://b24a2nre2wnnh" path="res://assets/ui/ballastTank.png" id="5_4167o"]
 [ext_resource type="SpriteFrames" uid="uid://bo2iyso0rvuup" path="res://scenes/waterFrames.tres" id="6_fcveb"]
-[ext_resource type="Texture2D" uid="uid://bwewj70s7jq40" path="res://assets/broken-screen.png" id="8_my3mo"]
-[ext_resource type="Texture2D" uid="uid://cbh68oyq0bicq" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
 [ext_resource type="Texture2D" uid="uid://sh346ei3yayi" path="res://assets/lightmask.png" id="8_my3mo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa563"]
@@ -67,7 +65,7 @@ texture_filter = 1
 position = Vector2(-3, 0)
 sprite_frames = ExtResource("2_s87fy")
 animation = &"running"
-frame_progress = 0.740588
+frame_progress = 0.733718
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 0)
@@ -119,39 +117,3 @@ position = Vector2(0, 23)
 sprite_frames = ExtResource("6_fcveb")
 frame = 1
 frame_progress = 0.536956
-
-[node name="BrokenScreenOverlay" type="TextureRect" parent="."]
-offset_left = -289.0
-offset_top = -161.0
-offset_right = 863.0
-offset_bottom = 487.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_my3mo")
-
-[node name="DamagedScreenOverlay" type="TextureRect" parent="."]
-offset_left = -289.0
-offset_top = -161.0
-offset_right = 863.0
-offset_bottom = 487.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_j40ms")
-[node name="PointLight2D" type="PointLight2D" parent="."]
-light_mask = 0
-position = Vector2(0, 1)
-color = Color(0.190762, 0.190762, 0.190762, 1)
-energy = 9.94
-blend_mode = 2
-range_z_max = 256
-range_layer_max = 5
-texture = SubResource("GradientTexture2D_my3mo")
-texture_scale = 9.12
-height = 14.0
-
-[node name="PointLight2D2" type="PointLight2D" parent="."]
-position = Vector2(173, 67)
-rotation = 0.34338
-scale = Vector2(6.90104, 6.70154)
-energy = 1.29
-range_z_max = 555
-texture = ExtResource("8_my3mo")
-texture_scale = 0.05

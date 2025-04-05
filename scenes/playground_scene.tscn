@@ -8,7 +8,7 @@
 [node name="PlaygroundScene" type="Node2D"]
 
 [node name="Tempbackground" type="Sprite2D" parent="."]
-position = Vector2(7, 71)
+position = Vector2(7, 28)
 texture = ExtResource("1_64foh")
 
 [node name="Submariner" parent="." instance=ExtResource("1_jpd4k")]
