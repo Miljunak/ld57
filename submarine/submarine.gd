@@ -154,3 +154,6 @@ func update_screen_effects() -> void:
 		damaged_screen_overlay.visible = false
 		low_health_sfx.stop()
 		low_health_played = false
+
+func collect_scrap(scrapName):
+	$CollectorModule.collect(scrapName)

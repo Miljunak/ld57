@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://i8fdn5mjpqg4"]
+[gd_scene load_steps=7 format=3 uid="uid://i8fdn5mjpqg4"]
 
 [ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="1_64foh"]
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_jpd4k"]
 [ext_resource type="PackedScene" uid="uid://prwkmgih00pp" path="res://bazunia/bazunia.tscn" id="3_ybuwm"]
 [ext_resource type="PackedScene" uid="uid://jjein1jjs4xa" path="res://ai/shark.tscn" id="4_iya78"]
 [ext_resource type="PackedScene" uid="uid://cpnvwkafv7388" path="res://ai/octopus.tscn" id="5_l6i3r"]
+[ext_resource type="PackedScene" uid="uid://bbfjhwlo1k8fr" path="res://components/scrap_template.tscn" id="6_q6pdw"]
 
 [node name="PlaygroundScene" type="Node2D"]
 
@@ -23,3 +24,9 @@ position = Vector2(165, 4)
 position = Vector2(217, 242)
 
 [node name="Octopus" parent="." instance=ExtResource("5_l6i3r")]
+
+[node name="scrap" parent="." instance=ExtResource("6_q6pdw")]
+position = Vector2(0, 310)
+scrap_name = "shoe"
+
+[editable path="scrap"]
