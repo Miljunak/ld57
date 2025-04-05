@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://dtn0he7lbljg0"]
+
+[ext_resource type="Script" uid="uid://dm0oxik1xe4gm" path="res://submarine/submarine.gd" id="1_w62jf"]
+[ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="2_j40ms"]
+[ext_resource type="SpriteFrames" uid="uid://bdvcu18bk08gg" path="res://submarine/spriteFrames.tres" id="2_s87fy"]
+[ext_resource type="Texture2D" uid="uid://dbd6x38m7wm6i" path="res://assets/ui/thotel-lever.png" id="3_s87fy"]
+[ext_resource type="Texture2D" uid="uid://d02iq2q4b24bq" path="res://assets/ui/throtel-body.png" id="3_t4o5t"]
+[ext_resource type="Script" uid="uid://dlieu4ufdlg85" path="res://submarine/searchLight.gd" id="4_88vpn"]
+[ext_resource type="SpriteFrames" uid="uid://bk40prdsdscxe" path="res://scenes/directionArrows.tres" id="5_06tcg"]
+[ext_resource type="Texture2D" uid="uid://b24a2nre2wnnh" path="res://assets/ui/ballastTank.png" id="5_4167o"]
+[ext_resource type="SpriteFrames" uid="uid://bo2iyso0rvuup" path="res://scenes/waterFrames.tres" id="6_fcveb"]
+[ext_resource type="Texture2D" uid="uid://sh346ei3yayi" path="res://assets/lightmask.png" id="8_my3mo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa563"]
+radius = 14.0
+height = 58.0
+
+[sub_resource type="Gradient" id="Gradient_06tcg"]
+offsets = PackedFloat32Array(0, 0.41623, 0.67801)
+colors = PackedColorArray(1, 1, 1, 1, 0.162066, 0.162066, 0.162066, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_my3mo"]
+gradient = SubResource("Gradient_06tcg")
+fill = 1
+fill_from = Vector2(0.495726, 0.512821)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fcveb"]
+font_size = 14
+
+[node name="Submariner" type="CharacterBody2D"]
+script = ExtResource("1_w62jf")
+
+[node name="Tempbackground" type="Sprite2D" parent="."]
+position = Vector2(42, 37)
+texture = ExtResource("2_j40ms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xa563")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 0
+color = Color(0.190762, 0.190762, 0.190762, 1)
+energy = 9.94
+blend_mode = 2
+range_z_max = 256
+range_layer_max = 5
+texture = SubResource("GradientTexture2D_my3mo")
+texture_scale = 9.12
+height = 14.0
+
+[node name="searchLight" type="PointLight2D" parent="."]
+scale = Vector2(6.90104, 6.70155)
+energy = 1.29
+range_z_max = 555
+range_layer_max = 5
+range_item_cull_mask = 15
+texture = ExtResource("8_my3mo")
+offset = Vector2(29.415, 0)
+texture_scale = 0.05
+script = ExtResource("4_88vpn")
+
+[node name="aSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3, 0)
+sprite_frames = ExtResource("2_s87fy")
+animation = &"running"
+frame_progress = 0.386388
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 0)
+zoom = Vector2(2, 2)
+
+[node name="Control" type="Control" parent="Camera2D"]
+light_mask = 0
+z_index = 1000
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -288.0
+offset_top = -163.0
+offset_right = 287.0
+offset_bottom = 162.0
+
+[node name="throtle" type="Sprite2D" parent="Camera2D/Control"]
+texture_filter = 1
+position = Vector2(287, 307)
+texture = ExtResource("3_t4o5t")
+
+[node name="lever" type="Sprite2D" parent="Camera2D/Control"]
+texture_filter = 1
+position = Vector2(290, 314)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_s87fy")
+
+[node name="direction" type="AnimatedSprite2D" parent="Camera2D/Control"]
+position = Vector2(508, 301)
+sprite_frames = ExtResource("5_06tcg")
+animation = &"neutral"
+
+[node name="tank" type="Sprite2D" parent="Camera2D/Control"]
+position = Vector2(540, 295)
+texture = ExtResource("5_4167o")
+
+[node name="Label" type="Label" parent="Camera2D/Control/tank"]
+texture_filter = 1
+offset_left = -21.0
+offset_top = -48.0
+offset_right = 50.0
+offset_bottom = -17.0
+text = "ballast"
+label_settings = SubResource("LabelSettings_fcveb")
+
+[node name="waterLevel" type="AnimatedSprite2D" parent="Camera2D/Control/tank"]
+light_mask = 0
+position = Vector2(0, 23)
+sprite_frames = ExtResource("6_fcveb")
+frame = 1
+frame_progress = 0.536956

@@ -33,11 +33,16 @@ const SHAKE_DURATION = 0.2
 @onready var camera = $Camera2D
 @onready var broken_screen_overlay = $BrokenScreenOverlay
 @onready var damaged_screen_overlay = $DamagedScreenOverlay
+@onready var low_health_sfx: AudioStreamPlayer2D = $LowHealthSFX
+@onready var damage_sfx: AudioStreamPlayer2D = $DamageSFX
+
+var low_health_played = false
 
 func _ready() -> void:
 	waterLevel.play("default")
 	broken_screen_overlay.visible = false
 	damaged_screen_overlay.visible = false
+	low_health_sfx.stop()
 
 func _physics_process(delta: float) -> void:
 	update_immunity(delta)
@@ -103,6 +108,7 @@ func apply_damage(amount: int) -> void:
 	immunity_timer = IMMUNITY_DURATION
 	flicker_timer = 0.0
 	shake_timer = SHAKE_DURATION
+	damage_sfx.play()
 
 func update_immunity(delta: float) -> void:
 	if is_immune:
@@ -130,6 +136,9 @@ func update_screen_effects() -> void:
 		broken_screen_overlay.visible = true
 		broken_screen_overlay.modulate.a = 0.3 + (0.7 * (1.0 - (health / MAX_HEALTH)))
 		damaged_screen_overlay.visible = false
+		if !low_health_played:
+			low_health_sfx.play()
+			low_health_played = true
 	elif health <= MAX_HEALTH * 0.66:
 		damaged_screen_overlay.visible = true
 		damaged_screen_overlay.modulate.a = 0.3 + (0.7 * (1.0 - (health / MAX_HEALTH)))
@@ -137,3 +146,5 @@ func update_screen_effects() -> void:
 	else:
 		broken_screen_overlay.visible = false
 		damaged_screen_overlay.visible = false
+		low_health_sfx.stop()
+		low_health_played = false

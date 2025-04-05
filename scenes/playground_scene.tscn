@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://i8fdn5mjpqg4"]
+[gd_scene load_steps=6 format=3 uid="uid://i8fdn5mjpqg4"]
 
 [ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="1_64foh"]
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_jpd4k"]
 [ext_resource type="PackedScene" uid="uid://prwkmgih00pp" path="res://bazunia/bazunia.tscn" id="3_ybuwm"]
 [ext_resource type="PackedScene" uid="uid://jjein1jjs4xa" path="res://ai/shark.tscn" id="4_iya78"]
+[ext_resource type="PackedScene" uid="uid://cpnvwkafv7388" path="res://ai/octopus.tscn" id="5_l6i3r"]
 
 [node name="PlaygroundScene" type="Node2D"]
 
 [node name="Tempbackground" type="Sprite2D" parent="."]
-position = Vector2(7, 71)
+position = Vector2(7, 28)
 texture = ExtResource("1_64foh")
 
 [node name="Submariner" parent="." instance=ExtResource("1_jpd4k")]
@@ -20,3 +21,5 @@ position = Vector2(165, 4)
 
 [node name="sharky" parent="." instance=ExtResource("4_iya78")]
 position = Vector2(217, 242)
+
+[node name="Octopus" parent="." instance=ExtResource("5_l6i3r")]

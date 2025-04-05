@@ -28,7 +28,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		speed = max_speed * (1.0 - ((cycle_time - acceleration_duration) / deceleration_duration))
 
-	position += swim_direction * speed * delta
+	if (player):
+		position += swim_direction * speed * delta
 
 	check_player_collision()
 
@@ -38,5 +39,5 @@ func update_swim_direction():
 		sprite.flip_h = swim_direction.x < 0
 
 func check_player_collision():
-	if player != null and position.distance_to(player.position) < 30:
+	if player != null and position.distance_to(player.position) < 40:
 		player.apply_damage(25)
