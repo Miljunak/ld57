@@ -42,7 +42,7 @@ func _ready() -> void:
 	waterLevel.play("default")
 	broken_screen_overlay.visible = false
 	damaged_screen_overlay.visible = false
-	#low_health_sfx.stop()
+	low_health_sfx.stop()
 
 func _physics_process(delta: float) -> void:
 	update_immunity(delta)
@@ -108,7 +108,7 @@ func apply_damage(amount: int) -> void:
 	immunity_timer = IMMUNITY_DURATION
 	flicker_timer = 0.0
 	shake_timer = SHAKE_DURATION
-	#damage_sfx.play()
+	damage_sfx.play()
 
 func update_immunity(delta: float) -> void:
 	if is_immune:
@@ -146,5 +146,5 @@ func update_screen_effects() -> void:
 	else:
 		broken_screen_overlay.visible = false
 		damaged_screen_overlay.visible = false
-		#low_health_sfx.stop()
+		low_health_sfx.stop()
 		low_health_played = false
