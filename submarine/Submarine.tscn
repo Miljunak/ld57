@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtn0he7lbljg0"]
+[gd_scene load_steps=14 format=3 uid="uid://dtn0he7lbljg0"]
 
 [ext_resource type="Script" uid="uid://dm0oxik1xe4gm" path="res://submarine/submarine.gd" id="1_w62jf"]
 [ext_resource type="SpriteFrames" uid="uid://bdvcu18bk08gg" path="res://submarine/spriteFrames.tres" id="2_s87fy"]
@@ -9,6 +9,8 @@
 [ext_resource type="SpriteFrames" uid="uid://bo2iyso0rvuup" path="res://scenes/waterFrames.tres" id="6_fcveb"]
 [ext_resource type="Texture2D" uid="uid://bwewj70s7jq40" path="res://assets/broken-screen.png" id="8_my3mo"]
 [ext_resource type="Texture2D" uid="uid://cbh68oyq0bicq" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
+[ext_resource type="AudioStream" uid="uid://cl8ircppdy81y" path="res://assets/sounds/low_health_sfx.mp3" id="10_88vpn"]
+[ext_resource type="AudioStream" uid="uid://bt32acqcox70n" path="res://assets/sounds/damage_sfx.mp3" id="11_jrqhm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa563"]
 radius = 14.0
@@ -94,3 +96,12 @@ offset_right = 863.0
 offset_bottom = 487.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_j40ms")
+
+[node name="LowHealthSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_88vpn")
+
+[node name="DamageSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_jrqhm")
+volume_db = 3.748
+pitch_scale = 0.26
+panning_strength = 1.73
