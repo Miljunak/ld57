@@ -23,7 +23,8 @@ var INPUT_THRESHOLD = 1
 @export
 var MAX_DESCENT = 150
 
-const ui_control_eps = 0.5
+const BUYANCY_CLAMP= 20
+const ui_control_eps = 1
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -39,9 +40,9 @@ func _physics_process(delta: float) -> void:
 	var clampedBoyancy = clamp_bouyancy(buoyancy)
 	set_boyancy_level(buoyancy)
 	velocity.y = min(max((((clampedBoyancy * 10) - (WATER_RESISTANCE*velocity.y))*delta + velocity.y),-MAX_DESCENT),MAX_DESCENT)
-	if velocity.y < -ui_control_eps:
+	if clampedBoyancy < -BUYANCY_CLAMP:
 		$Camera2D/Control/direction.play("up")
-	elif velocity.y > ui_control_eps:
+	elif clampedBoyancy > BUYANCY_CLAMP:
 		$Camera2D/Control/direction.play("down")
 	else:
 		$Camera2D/Control/direction.play("neutral")
@@ -77,7 +78,7 @@ func clamp_propulsion():
 
 func clamp_bouyancy(_buoyancy: float) -> float:
 	#clamp low bouyances so that u can float in place
-	if _buoyancy < 20 and _buoyancy > -20:
+	if _buoyancy < BUYANCY_CLAMP and _buoyancy > -BUYANCY_CLAMP:
 		return 0
 	buoyancy = max(min(_buoyancy, MAX_BUOYANCY),MIN_BUOYANCY)
 	return buoyancy
