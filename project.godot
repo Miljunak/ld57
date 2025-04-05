@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ld57"
-run/main_scene="uid://dtn0he7lbljg0"
+run/main_scene="uid://i8fdn5mjpqg4"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

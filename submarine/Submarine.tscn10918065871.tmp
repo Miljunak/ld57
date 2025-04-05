@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtn0he7lbljg0"]
+[gd_scene load_steps=8 format=3 uid="uid://dtn0he7lbljg0"]
 
 [ext_resource type="Script" uid="uid://dm0oxik1xe4gm" path="res://submarine/submarine.gd" id="1_w62jf"]
 [ext_resource type="SpriteFrames" uid="uid://bdvcu18bk08gg" path="res://submarine/spriteFrames.tres" id="2_s87fy"]
@@ -11,11 +11,16 @@
 radius = 14.0
 height = 58.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_fcveb"]
-font_size = 14
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_w62jf")
+SPEED = null
+WATER_RESISTANCE = null
+BUOYANCY_CHANGE_SPEED = null
+MIN_BUOYANCY = null
+MAX_BUOYANCY = null
+MAX_PROPULSION = null
+PROPULSION_CHANGE_SPEED = null
+INPUT_THRESHOLD = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -56,15 +61,6 @@ texture = ExtResource("3_s87fy")
 [node name="tank" type="Sprite2D" parent="Camera2D/Control"]
 position = Vector2(540, 295)
 texture = ExtResource("5_4167o")
-
-[node name="Label" type="Label" parent="Camera2D/Control/tank"]
-texture_filter = 1
-offset_left = -21.0
-offset_top = -48.0
-offset_right = 50.0
-offset_bottom = -17.0
-text = "ballast"
-label_settings = SubResource("LabelSettings_fcveb")
 
 [node name="waterLevel" type="AnimatedSprite2D" parent="Camera2D/Control/tank"]
 position = Vector2(0, 23)

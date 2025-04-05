@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bo2iyso0rvuup"]
+
+[ext_resource type="Texture2D" uid="uid://cx84q1481jje3" path="res://assets/ui/ballastTankBar.png" id="1_0miuc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht5h3"]
+atlas = ExtResource("1_0miuc")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_385mt"]
+atlas = ExtResource("1_0miuc")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orwqt"]
+atlas = ExtResource("1_0miuc")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn0gy"]
+atlas = ExtResource("1_0miuc")
+region = Rect2(96, 0, 32, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht5h3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_385mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orwqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn0gy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
