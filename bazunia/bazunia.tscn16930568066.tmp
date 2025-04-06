@@ -83,9 +83,9 @@ offset_bottom = 42.0
 
 [node name="moneysDisplayer" type="Label" parent="baza_gui/Control/Upgrades"]
 layout_mode = 0
-offset_left = 918.0
+offset_left = 1003.0
 offset_top = 534.0
-offset_right = 1032.0
+offset_right = 1117.0
 offset_bottom = 603.0
 text = "500$"
 label_settings = SubResource("LabelSettings_cf065")
