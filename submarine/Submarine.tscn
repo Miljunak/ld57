@@ -222,7 +222,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="searchLight/Area2D"]
-polygon = PackedVector2Array(0, 1, 286, 91, 425, -2, 291, -88)
+polygon = PackedVector2Array(29.9999, 0, 286, 91, 425, -2, 291, -88)
 
 [node name="aSprite" type="AnimatedSprite2D" parent="."]
 light_mask = 1024

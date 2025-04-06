@@ -1,8 +1,8 @@
 extends base_monster
 
 func _ready() -> void:
-	super._ready()
 	$AnimatedSprite2D.play("default")
-	bravery = 2
-	DAMAGE_DEALT = 5
-	DAMAGE_RANGE = 10
+	DAMAGE_DEALT = 10
+	DAMAGE_RANGE = 8
+	bravery = 1
+	super._ready()

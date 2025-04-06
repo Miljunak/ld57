@@ -5,10 +5,15 @@ var acceleration_duration = 0.8
 var deceleration_duration = 0.5
 var swim_cycle_duration = acceleration_duration + deceleration_duration
 
+
 func _ready():
 	sprite.play("swim")
 	bravery = 3
 	max_chase_distance = 1000.0
+
+	DAMAGE_DEALT = 25
+	DAMAGE_RANGE = 30
+	super._ready()
 
 func _physics_process(delta: float) -> void:
 	check_scared_timer(delta)
@@ -35,7 +40,3 @@ func update_swim_direction():
 	if player != null:
 		swim_direction = (player.position - position).normalized()
 		sprite.flip_h = swim_direction.x < 0
-
-func check_player_collision():
-	if player != null and position.distance_to(player.position) < 30:
-		player.apply_damage(25)
