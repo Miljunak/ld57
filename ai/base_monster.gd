@@ -16,10 +16,18 @@ var is_scared = false
 var scare_counter = 0.0
 var player_too_far = false
 
+var DAMAGE_DEALT = 10
+var DAMAGE_RANGE = 10
+var MAX_HEALTH = 100
+
 @onready var player = get_node("../Submariner")
 @onready var sprite = $AnimatedSprite2D
 
+var health = MAX_HEALTH
+var start_pos 
+
 func _ready():
+	start_pos = position
 	set_random_direction()
 
 func check_scared_timer(delta):
@@ -38,7 +46,8 @@ func _physics_process(delta: float) -> void:
 		swim_timer = 0.0
 		set_random_direction()
 	position += swim_direction * swimming_speed * delta
-
+	check_player_collision()
+	
 func check_player_distance():
 	if player != null:
 		player_too_far = position.distance_to(player.position) > max_chase_distance
@@ -68,3 +77,12 @@ func trigger_scared():
 		
 func damage(dmg_type="torpedo"):
 	print("monster damaged")
+	health -= 100
+	if(health <= 0 ):
+		die()
+func die():
+	health = MAX_HEALTH
+	position = start_pos
+func check_player_collision():
+	if player != null and position.distance_to(player.position) < DAMAGE_RANGE:
+		player.apply_damage(DAMAGE_DEALT)

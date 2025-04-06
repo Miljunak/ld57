@@ -7,7 +7,10 @@ func _ready():
 	sprite.play("swim")
 	bravery = 100.0
 	max_chase_distance = 5000
+	super._ready()
 
+	DAMAGE_DEALT = 25
+	DAMAGE_RANGE = 30
 func _physics_process(delta: float) -> void:
 	check_scared_timer(delta)
 	swim_timer += delta
@@ -25,7 +28,3 @@ func update_swim_direction(delta: float):
 		swim_direction = (player.position - position).normalized()
 		var target_angle = swim_direction.angle()
 		sprite.rotation = lerp_angle(sprite.rotation, target_angle, delta * rotation_drag)
-
-func check_player_collision():
-	if player != null and position.distance_to(player.position) < 30:
-		player.apply_damage(25)
