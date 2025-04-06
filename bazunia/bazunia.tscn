@@ -1,11 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://prwkmgih00pp"]
+[gd_scene load_steps=15 format=3 uid="uid://prwkmgih00pp"]
 
 [ext_resource type="Script" uid="uid://cuighw3s7lp2r" path="res://bazunia/bazunia.gd" id="1_t0pju"]
 [ext_resource type="Texture2D" uid="uid://m5snyu36ktfb" path="res://assets/ui/space_ico.png" id="2_infe6"]
 [ext_resource type="Theme" uid="uid://bjy2d8mupfxbd" path="res://components/ui_theme.tres" id="3_t104p"]
+[ext_resource type="Texture2D" uid="uid://cvmq8erwfop6n" path="res://assets/base1.png" id="4_cf065"]
+[ext_resource type="Texture2D" uid="uid://c546jermwosi0" path="res://assets/rocks.png" id="5_n4xso"]
+[ext_resource type="Texture2D" uid="uid://cfdrw4lr8iflu" path="res://assets/submarinerReference1.png" id="6_ew4jx"]
+[ext_resource type="Texture2D" uid="uid://c1d71l3rybh15" path="res://assets/cave_back.png" id="7_6qyca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_infe6"]
 size = Vector2(102, 100)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cf065"]
+font_size = 50
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n4xso"]
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ew4jx"]
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qyca"]
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_infe6"]
 colors = PackedColorArray(0.727675, 0.452969, 0.600146, 1, 1, 1, 1, 1)
@@ -15,6 +36,7 @@ gradient = SubResource("Gradient_infe6")
 fill_from = Vector2(0.747863, 0.316239)
 
 [node name="bazunia" type="Node2D"]
+z_index = 2
 script = ExtResource("1_t0pju")
 
 [node name="keyHint" type="Sprite2D" parent="."]
@@ -39,19 +61,22 @@ offset_bottom = 648.0
 theme = ExtResource("3_t104p")
 
 [node name="Upgrades" type="Panel" parent="baza_gui/Control"]
+z_index = 18
 texture_filter = 1
 layout_mode = 0
-offset_left = 278.0
-offset_top = 30.0
-offset_right = 884.0
-offset_bottom = 550.0
+offset_left = 9.0
+offset_top = 21.0
+offset_right = 201.0
+offset_bottom = 41.0
 
 [node name="moneysDisplayer" type="Label" parent="baza_gui/Control/Upgrades"]
 layout_mode = 0
-offset_left = 485.0
-offset_top = 8.0
-offset_right = 596.0
-offset_bottom = 43.0
+offset_left = 1003.0
+offset_top = 534.0
+offset_right = 1117.0
+offset_bottom = 603.0
+text = "500$"
+label_settings = SubResource("LabelSettings_cf065")
 
 [node name="Label" type="Label" parent="baza_gui/Control/Upgrades"]
 layout_mode = 0
@@ -60,6 +85,7 @@ offset_top = 12.0
 offset_right = 185.0
 offset_bottom = 35.0
 text = "CAVE BAZE"
+label_settings = SubResource("LabelSettings_n4xso")
 
 [node name="throtle_speed" type="Control" parent="baza_gui/Control/Upgrades"]
 layout_mode = 3
@@ -82,7 +108,8 @@ offset_left = -2.0
 offset_top = -26.0
 offset_right = 174.0
 offset_bottom = -3.0
-text = "throttle change speed:"
+text = "Throttle speed:"
+label_settings = SubResource("LabelSettings_ew4jx")
 
 [node name="Button" type="Button" parent="baza_gui/Control/Upgrades/throtle_speed"]
 layout_mode = 0
@@ -130,7 +157,8 @@ offset_left = -2.0
 offset_top = -26.0
 offset_right = 174.0
 offset_bottom = -3.0
-text = "engine:"
+text = "Engine:"
+label_settings = SubResource("LabelSettings_6qyca")
 
 [node name="Button" type="Button" parent="baza_gui/Control/Upgrades/engine"]
 layout_mode = 0
@@ -158,8 +186,45 @@ offset_bottom = 18.0
 step = 1.0
 show_percentage = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CanvasGroup" type="CanvasGroup" parent="baza_gui/Control"]
+light_mask = 1024
+position = Vector2(-1167, -5)
+
+[node name="Base1" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1750.4, 532.562)
+scale = Vector2(7.20052, 7.20052)
+texture = ExtResource("4_cf065")
+
+[node name="Sprite2D" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
+position = Vector2(1168, 5)
+scale = Vector2(1, 1.0625)
 texture = SubResource("GradientTexture2D_t104p")
+
+[node name="Rocks" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
+z_index = 1
+position = Vector2(1749.5, 328.5)
+scale = Vector2(1.65571, 1.32449)
+texture = ExtResource("5_n4xso")
+
+[node name="SubmarinerReference1" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
+z_index = 7
+position = Vector2(1631, -11)
+scale = Vector2(4.51465, 4.51465)
+texture = ExtResource("6_ew4jx")
+
+[node name="CaveBack" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
+z_index = -1
+position = Vector2(1522.07, 349.188)
+scale = Vector2(1.00265, 1.10128)
+texture = ExtResource("7_6qyca")
+
+[node name="Base2" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
+z_index = -2
+position = Vector2(1963, 638)
+scale = Vector2(4.22396, 4.22396)
+texture = ExtResource("4_cf065")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_exited"]
