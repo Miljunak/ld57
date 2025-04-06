@@ -38,6 +38,7 @@ const SHAKE_DURATION = 0.2
 @onready var explosion = $Explosion
 
 var low_health_played = false
+var baza : Bazunia
 
 func _ready() -> void:
 	waterLevel.play("default")
@@ -45,7 +46,9 @@ func _ready() -> void:
 	damaged_screen_overlay.visible = false
 	explosion.visible = false
 	low_health_sfx.stop()
-
+	baza = get_node("../bazunia")
+	baza.connect("base_entered",on_base_entered)
+	baza.connect("base_exited",on_base_exited)
 func _physics_process(delta: float) -> void:
 	update_immunity(delta)
 	update_flicker(delta)
@@ -106,6 +109,8 @@ func apply_damage(amount: int) -> void:
 		return
 	
 	health -= amount
+	if health <= 0:
+		die()
 	health = clamp(health, 0, MAX_HEALTH)
 	print(health)
 	is_immune = true
@@ -158,3 +163,27 @@ func update_screen_effects() -> void:
 
 func collect_scrap(scrapName):
 	$CollectorModule.collect(scrapName)
+	
+func die():
+	print("U DEAD")
+	$Camera2D/Control/DEATHLABEL.visible = true
+	await get_tree().create_timer(2.0).timeout
+	print("U RESPAWNING")
+	$Camera2D/Control/DEATHLABEL.visible = false
+	position = baza.position
+	health = MAX_HEALTH
+	explosion.stop()
+	explosion.visible = false
+	$CollectorModule.inventory.clear()
+	$OxygenModule.oxygen = $OxygenModule.MAX_OXYGEN
+
+func _on_no_oxygen() -> void:
+	apply_damage(25)
+
+func on_base_entered():
+	$OxygenModule.oxygen = $OxygenModule.MAX_OXYGEN
+	$OxygenModule.dont_breathe = true
+func on_base_exited():
+	$OxygenModule.oxygen = $OxygenModule.MAX_OXYGEN
+	$OxygenModule.dont_breathe = false
+	

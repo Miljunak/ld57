@@ -1,17 +1,27 @@
 extends Node2D
 
-var oxygen = 100
+signal no_oxygen
+
+var MAX_OXYGEN = 100
+var oxygen = MAX_OXYGEN
 @export
 var breathing_speed = 1
 @onready
 var oxygenProgressBar : ProgressBar= get_node("../Camera2D/Control/oxygenBar")
+const OXYGEN_DAMAGE_INTERVAL = 1
+var no_oxygen_timer = OXYGEN_DAMAGE_INTERVAL
+var dont_breathe = false
 
 func _ready() -> void:
 	oxygenProgressBar.max_value = oxygen
 
 func _process(delta: float) -> void:
-	oxygen -= breathing_speed*delta
+	if(!dont_breathe):
+		oxygen -= breathing_speed*delta
 	oxygenProgressBar.value = oxygen
 	if (oxygen < 0):
-		print("U DEAD! U DEAD! U DEAD! U DEAD! U DEAD")
-		
+		if no_oxygen_timer >= OXYGEN_DAMAGE_INTERVAL:
+			no_oxygen.emit()
+			no_oxygen_timer = 0
+		else:
+			no_oxygen_timer+=1

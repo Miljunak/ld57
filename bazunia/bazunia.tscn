@@ -212,8 +212,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.034
 anchor_bottom = 0.306
-offset_right = -0.0440063
-offset_bottom = 196.048
+offset_right = -13.384
+offset_bottom = 195.206
 
 [node name="Button" type="Button" parent="baza_gui/Control/Items"]
 layout_mode = 0

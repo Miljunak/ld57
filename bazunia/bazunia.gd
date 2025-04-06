@@ -1,4 +1,8 @@
 extends Node2D
+class_name Bazunia
+
+signal base_entered
+signal base_exited
 
 var player_in_zone := false
 @onready 
@@ -45,6 +49,7 @@ func _on_area_exited(body: Node2D) -> void:
 	if body.name == "Submariner":
 		player_in_zone = false
 		my_ui.visible = false
+		base_exited.emit()
 		keyHint.visible = false
 		
 var playerRef : Submariner = null
@@ -53,6 +58,9 @@ var inv : CollectorModule = null
 func _process(delta):
 	if player_in_zone and Input.is_action_just_pressed("interact"):
 		my_ui.visible = !my_ui.visible
+		if my_ui.visible:
+			base_entered.emit()
+		
 var engine_upgrades = [{"maxSpeedBonus":1,"cost":100},
 					   {"maxSpeedBonus":1,"cost":200},
 					   {"maxSpeedBonus":1,"cost":300},
