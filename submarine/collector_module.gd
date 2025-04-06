@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name CollectorModule
 @export
 var inventory = []
 
