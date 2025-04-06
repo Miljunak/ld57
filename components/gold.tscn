@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://de5d74ts4c7yh"]
+
+[ext_resource type="Script" uid="uid://do21qrae7lq66" path="res://scenes/scrap.gd" id="1_taqsx"]
+[ext_resource type="Texture2D" uid="uid://decy4auoxvgfm" path="res://assets/Gold.png" id="2_g8auo"]
+[ext_resource type="Texture2D" uid="uid://m5snyu36ktfb" path="res://assets/ui/space_ico.png" id="3_hfqct"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f7d5k"]
+
+[node name="gold" type="Area2D"]
+script = ExtResource("1_taqsx")
+scrap_name = "gold"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, 0)
+texture = ExtResource("2_g8auo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_f7d5k")
+
+[node name="keyHint" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+texture_filter = 1
+position = Vector2(1, -28)
+texture = ExtResource("3_hfqct")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
