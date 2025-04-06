@@ -1,43 +1,31 @@
-extends CharacterBody2D
+extends base_monster
 
-var max_speed = 400
-var acceleration_duration = 0.8
-var deceleration_duration = 0.5
-var swim_cycle_duration = acceleration_duration + deceleration_duration
-
-var swim_direction = Vector2(1, 0)
-var swim_timer = 0.0
-
-@onready var player = get_node("../Submariner")
-@onready var sprite = $AnimatedSprite2D
+var max_speed = 120
+var rotation_drag = 0.5
 
 func _ready():
 	sprite.play("swim")
+	bravery = 100.0
+	max_chase_distance = 5000
 
 func _physics_process(delta: float) -> void:
-	var prev_cycle_time = fmod(swim_timer, swim_cycle_duration)
+	check_scared_timer(delta)
 	swim_timer += delta
-	var cycle_time = fmod(swim_timer, swim_cycle_duration)
 
-	if prev_cycle_time > cycle_time:
-		update_swim_direction()
-
-	var speed = 0.0
-	if cycle_time < acceleration_duration:
-		speed = max_speed * (cycle_time / acceleration_duration)
-	else:
-		speed = max_speed * (1.0 - ((cycle_time - acceleration_duration) / deceleration_duration))
-
-	if (player):
-		position += swim_direction * speed * delta
-
+	update_swim_direction(delta)
 	check_player_collision()
+	
+	player_too_far = position.distance_to(player.position) > max_chase_distance
+	if (player and player_too_far):
+		var escape = -1 if is_scared else 1
+		position += swim_direction * max_speed * delta * escape
 
-func update_swim_direction():
+func update_swim_direction(delta: float):
 	if player != null:
 		swim_direction = (player.position - position).normalized()
-		sprite.flip_h = swim_direction.x < 0
+		var target_angle = swim_direction.angle()
+		sprite.rotation = lerp_angle(sprite.rotation, target_angle, delta * rotation_drag)
 
 func check_player_collision():
-	if player != null and position.distance_to(player.position) < 50:
+	if player != null and position.distance_to(player.position) < 30:
 		player.apply_damage(25)

@@ -7,6 +7,8 @@ var swim_cycle_duration = acceleration_duration + deceleration_duration
 
 func _ready():
 	sprite.play("swim")
+	bravery = 3
+	max_chase_distance = 1000.0
 
 func _physics_process(delta: float) -> void:
 	check_scared_timer(delta)
@@ -22,11 +24,12 @@ func _physics_process(delta: float) -> void:
 		speed = max_speed * (cycle_time / acceleration_duration)
 	else:
 		speed = max_speed * (1.0 - ((cycle_time - acceleration_duration) / deceleration_duration))
-
-	set_random_direction()
+		
 	check_player_collision()
-	if (player):
-		position += swim_direction * speed * delta
+	player_too_far = position.distance_to(player.position) > max_chase_distance
+	if (player and !player_too_far):
+		var escape = -1 if is_scared else 1
+		position += swim_direction * speed * delta * escape
 
 func update_swim_direction():
 	if player != null:
