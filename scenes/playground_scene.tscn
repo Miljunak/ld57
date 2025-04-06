@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_jpd4k"]
 [ext_resource type="PackedScene" uid="uid://prwkmgih00pp" path="res://bazunia/bazunia.tscn" id="3_ybuwm"]
 [ext_resource type="PackedScene" uid="uid://jjein1jjs4xa" path="res://ai/shark.tscn" id="4_iya78"]
-[ext_resource type="PackedScene" uid="uid://cpnvwkafv7388" path="res://ai/octopus.tscn" id="5_l6i3r"]
-[ext_resource type="PackedScene" uid="uid://de5d74ts4c7yh" path="res://components/gold.tscn" id="6_f7d5k"]
-[ext_resource type="PackedScene" uid="uid://bbfjhwlo1k8fr" path="res://components/scrap_template.tscn" id="6_q6pdw"]
-[ext_resource type="PackedScene" uid="uid://boomj3emhw4h1" path="res://components/ruby.tscn" id="7_jaapn"]
-[ext_resource type="PackedScene" uid="uid://doohxxs3b8uo4" path="res://components/amethyst.tscn" id="8_kw7rb"]
-[ext_resource type="PackedScene" uid="uid://bxyokjo25f7nt" path="res://components/aquamarine.tscn" id="11_xfepj"]
+[ext_resource type="PackedScene" uid="uid://bojlp01kk8kij" path="res://ai/octopus.tscn" id="5_l6i3r"]
+[ext_resource type="PackedScene" path="res://components/gold.tscn" id="6_f7d5k"]
+[ext_resource type="PackedScene" path="res://components/scrap_template.tscn" id="6_q6pdw"]
+[ext_resource type="PackedScene" path="res://components/ruby.tscn" id="7_jaapn"]
+[ext_resource type="PackedScene" path="res://components/amethyst.tscn" id="8_kw7rb"]
+[ext_resource type="PackedScene" path="res://components/aquamarine.tscn" id="11_xfepj"]
 
 [node name="PlaygroundScene" type="Node2D"]
 

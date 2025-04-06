@@ -1,10 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cpnvwkafv7388"]
 
 [ext_resource type="Script" uid="uid://c54jtmi2nbyyx" path="res://ai/octopus.gd" id="1_4dj2o"]
-[ext_resource type="Texture2D" uid="uid://cfi01jlvcj5yp" path="res://assets/octopus-Sheet.png" id="1_5s0kf"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_22eyu"]
-radius = 48.0
+[ext_resource type="Texture2D" uid="uid://d25ubmebtep8n" path="res://assets/octopus-Sheet.png" id="1_5s0kf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4dj2o"]
 atlas = ExtResource("1_5s0kf")
@@ -35,14 +32,12 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_22eyu"]
+radius = 48.0
+
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["mosnters"]]
 collision_layer = 2
 script = ExtResource("1_4dj2o")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_22eyu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, 0)
