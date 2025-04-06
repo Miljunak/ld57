@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://i8fdn5mjpqg4"]
+[gd_scene load_steps=11 format=3 uid="uid://i8fdn5mjpqg4"]
 
 [ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="1_64foh"]
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_jpd4k"]
 [ext_resource type="PackedScene" uid="uid://prwkmgih00pp" path="res://bazunia/bazunia.tscn" id="3_ybuwm"]
 [ext_resource type="PackedScene" uid="uid://jjein1jjs4xa" path="res://ai/shark.tscn" id="4_iya78"]
 [ext_resource type="PackedScene" uid="uid://cpnvwkafv7388" path="res://ai/octopus.tscn" id="5_l6i3r"]
+[ext_resource type="PackedScene" uid="uid://de5d74ts4c7yh" path="res://components/gold.tscn" id="6_f7d5k"]
 [ext_resource type="PackedScene" uid="uid://bbfjhwlo1k8fr" path="res://components/scrap_template.tscn" id="6_q6pdw"]
+[ext_resource type="PackedScene" uid="uid://boomj3emhw4h1" path="res://components/ruby.tscn" id="7_jaapn"]
+[ext_resource type="PackedScene" uid="uid://doohxxs3b8uo4" path="res://components/amethyst.tscn" id="8_kw7rb"]
+[ext_resource type="PackedScene" uid="uid://bxyokjo25f7nt" path="res://components/aquamarine.tscn" id="11_xfepj"]
 
 [node name="PlaygroundScene" type="Node2D"]
 
@@ -24,9 +28,25 @@ position = Vector2(165, 4)
 position = Vector2(217, 242)
 
 [node name="Octopus" parent="." instance=ExtResource("5_l6i3r")]
+position = Vector2(55, 592)
+
+[node name="gold" parent="." instance=ExtResource("6_f7d5k")]
+position = Vector2(-67, 410)
+
+[node name="ruby" parent="." instance=ExtResource("7_jaapn")]
+position = Vector2(-164, 352)
+
+[node name="amethyst" parent="." instance=ExtResource("8_kw7rb")]
+position = Vector2(-270, 445)
+
+[node name="aquamarine" parent="." instance=ExtResource("11_xfepj")]
+position = Vector2(-266, 349)
 
 [node name="scrap" parent="." instance=ExtResource("6_q6pdw")]
 position = Vector2(0, 310)
 scrap_name = "shoe"
+
+[node name="CollisionShape2D" parent="scrap" index="1"]
+position = Vector2(3, 4)
 
 [editable path="scrap"]
