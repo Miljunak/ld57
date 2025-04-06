@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://xtbb00r0j3c5"]
+
+[ext_resource type="Script" uid="uid://bpgee4f8onuyn" path="res://submarine/torpedo.gd" id="1_e3tqi"]
+[ext_resource type="Texture2D" uid="uid://ywgtgrk1e5ui" path="res://assets/torpedo.png" id="1_naiou"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e3tqi"]
+radius = 2.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 16
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_e3tqi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -11)
+texture = ExtResource("1_naiou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 0)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_e3tqi")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-15, 0)
+amount = 64
+lifetime = 0.49
+speed_scale = 0.2
+explosiveness = 0.07
+lifetime_randomness = 0.41
+emission_shape = 1
+emission_sphere_radius = 2.75
+gravity = Vector2(0, -900)

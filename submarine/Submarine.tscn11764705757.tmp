@@ -173,7 +173,7 @@ script = ExtResource("3_wkvwd")
 
 [node name="TorpedoModule" type="Node2D" parent="."]
 script = ExtResource("4_d7cbl")
-TORPEDO_SPEED = 200
+TORPEDO_SPEED = 1000
 
 [node name="Tempbackground" type="Sprite2D" parent="."]
 visible = false

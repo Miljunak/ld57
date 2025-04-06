@@ -31,7 +31,6 @@ func _physics_process(delta: float) -> void:
 	swim_timer += delta
 	check_scared_timer(delta)
 
-	
 	if swim_timer >= swim_interval:
 		swim_timer = 0.0
 		set_random_direction()
