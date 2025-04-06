@@ -5,7 +5,8 @@ var torpedo_scene = preload("res://submarine/torpedo.tscn")
 var player = get_node("../")
 
 @export
-var TORPEDO_SPEED = 400
+var TORPEDO_SPEED = 6.5
+
 
 @export
 var TORPEDO_LIFETIME = 5

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://i8fdn5mjpqg4"]
+[gd_scene load_steps=11 format=3 uid="uid://i8fdn5mjpqg4"]
 
 [ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="1_64foh"]
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_jpd4k"]
 [ext_resource type="PackedScene" uid="uid://prwkmgih00pp" path="res://bazunia/bazunia.tscn" id="3_ybuwm"]
 [ext_resource type="PackedScene" uid="uid://jjein1jjs4xa" path="res://ai/shark.tscn" id="4_iya78"]
+[ext_resource type="PackedScene" uid="uid://cpnvwkafv7388" path="res://ai/octopus.tscn" id="5_l6i3r"]
 [ext_resource type="PackedScene" uid="uid://de5d74ts4c7yh" path="res://components/gold.tscn" id="6_f7d5k"]
 [ext_resource type="PackedScene" uid="uid://bbfjhwlo1k8fr" path="res://components/scrap_template.tscn" id="6_q6pdw"]
 [ext_resource type="PackedScene" uid="uid://boomj3emhw4h1" path="res://components/ruby.tscn" id="7_jaapn"]
@@ -42,5 +43,7 @@ scrap_name = "shoe"
 
 [node name="CollisionShape2D" parent="scrap" index="1"]
 position = Vector2(3, 4)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_l6i3r")]
 
 [editable path="scrap"]

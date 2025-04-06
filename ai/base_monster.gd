@@ -64,3 +64,7 @@ func trigger_scared():
 	if scare_counter >= bravery:
 		is_scared = true
 		print("monster is now scared")
+		
+		
+func damage(dmg_type="torpedo"):
+	print("monster damaged")
