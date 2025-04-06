@@ -187,3 +187,6 @@ func on_base_exited():
 	$OxygenModule.oxygen = $OxygenModule.MAX_OXYGEN
 	$OxygenModule.dont_breathe = false
 	
+func upgrade_oxygen(value):
+	$OxygenModule.MAX_OXYGEN += value
+	$OxygenModule.oxygen = $OxygenModule.MAX_OXYGEN

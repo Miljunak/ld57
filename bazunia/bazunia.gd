@@ -24,6 +24,8 @@ func _ready():
 	$baza_gui/Control/Upgrades/moneysDisplayer.text = "$ %d"%[money]
 	$baza_gui/Control/Upgrades/engine/upgradeProgress.max_value = len(engine_upgrades)
 	$baza_gui/Control/Upgrades/throtle_speed/upgradeProgress.max_value = len(throtel_upgrades)
+	$baza_gui/Control/Upgrades/oxygenTank/upgradeProgress.max_value = len(oxygen_upgrades)
+	$baza_gui/Control/Upgrades/ballast_speed/upgradeProgress.max_value = len(ballast_upgrade)
 	push_warning("NO SUCHA test")
 
 func load_inv():
@@ -105,3 +107,32 @@ func sellItems() -> void:
 	load_inv()
 	set_moneys(money+sellSum)
 	
+
+var oxygen_upgrades = [{"bonus_max_oxygen":20,"cost":100},
+					   {"bonus_max_oxygen":25,"cost":200},
+					   {"bonus_max_oxygen":25,"cost":300},
+					   {"bonus_max_oxygen":25,"cost":300},
+					   {"bonus_max_oxygen":25,"cost":400}]
+var current_oxygen = 0
+
+func _on_oxygen_upgraded() -> void:
+	var upgrade_cost = oxygen_upgrades[current_oxygen]["cost"]
+	if money > upgrade_cost:
+		playerRef.upgrade_oxygen(oxygen_upgrades[current_oxygen]["bonus_max_oxygen"])
+		current_oxygen+=1
+		set_moneys(money-upgrade_cost)
+		$baza_gui/Control/Upgrades/oxygenTank/upgradeProgress.value+=1
+
+var ballast_upgrade = [{"ballast_upgrade_bonus":.2,"cost":100},
+					   {"ballast_upgrade_bonus":.1,"cost":200},
+					   {"ballast_upgrade_bonus":.1,"cost":300},
+					   {"ballast_upgrade_bonus":.05,"cost":300},
+					   {"ballast_upgrade_bonus":.1,"cost":400}]
+var current_ballast = 0
+func _on_ballast_pump_upgraded() -> void:
+	var upgrade_cost = throtel_upgrades[current_ballast]["cost"]
+	if money > upgrade_cost:
+		playerRef.BUOYANCY_CHANGE_SPEED += ballast_upgrade[current_ballast]["ballast_upgrade_bonus"]
+		current_ballast+=1
+		set_moneys(money-upgrade_cost)
+		$baza_gui/Control/Upgrades/ballast_speed/upgradeProgress.value+=1

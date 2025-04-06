@@ -100,6 +100,106 @@ text = "CAVE HIDEOUT"
 label_settings = SubResource("LabelSettings_n4xso")
 vertical_alignment = 1
 
+[node name="ballast_speed" type="Control" parent="baza_gui/Control/Upgrades"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 21.0
+offset_top = 311.0
+offset_right = 224.0
+offset_bottom = 393.0
+
+[node name="Panel" type="Panel" parent="baza_gui/Control/Upgrades/ballast_speed"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 179.0
+offset_bottom = 53.0
+
+[node name="Label2" type="Label" parent="baza_gui/Control/Upgrades/ballast_speed"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -26.0
+offset_right = 174.0
+offset_bottom = -3.0
+text = "Ballast pump speed:"
+label_settings = SubResource("LabelSettings_ew4jx")
+
+[node name="Button" type="Button" parent="baza_gui/Control/Upgrades/ballast_speed"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 19.0
+offset_right = 174.0
+offset_bottom = 50.0
+text = "upgrade"
+
+[node name="price" type="Label" parent="baza_gui/Control/Upgrades/ballast_speed"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 18.0
+offset_right = 79.0
+offset_bottom = 49.0
+text = "0 $"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upgradeProgress" type="ProgressBar" parent="baza_gui/Control/Upgrades/ballast_speed"]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = 18.0
+step = 1.0
+show_percentage = false
+
+[node name="oxygenTank" type="Control" parent="baza_gui/Control/Upgrades"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 21.0
+offset_top = 231.0
+offset_right = 224.0
+offset_bottom = 313.0
+
+[node name="Panel" type="Panel" parent="baza_gui/Control/Upgrades/oxygenTank"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 179.0
+offset_bottom = 53.0
+
+[node name="Label2" type="Label" parent="baza_gui/Control/Upgrades/oxygenTank"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -26.0
+offset_right = 174.0
+offset_bottom = -3.0
+text = "Oxygen tank:"
+label_settings = SubResource("LabelSettings_ew4jx")
+
+[node name="Button" type="Button" parent="baza_gui/Control/Upgrades/oxygenTank"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 19.0
+offset_right = 174.0
+offset_bottom = 50.0
+text = "upgrade"
+
+[node name="price" type="Label" parent="baza_gui/Control/Upgrades/oxygenTank"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 18.0
+offset_right = 79.0
+offset_bottom = 49.0
+text = "0 $"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="upgradeProgress" type="ProgressBar" parent="baza_gui/Control/Upgrades/oxygenTank"]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 175.0
+offset_bottom = 18.0
+step = 1.0
+show_percentage = false
+
 [node name="throtle_speed" type="Control" parent="baza_gui/Control/Upgrades"]
 layout_mode = 3
 anchors_preset = 0
@@ -273,6 +373,8 @@ texture = ExtResource("4_cf065")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_exited"]
+[connection signal="pressed" from="baza_gui/Control/Upgrades/ballast_speed/Button" to="." method="_on_ballast_pump_upgraded"]
+[connection signal="pressed" from="baza_gui/Control/Upgrades/oxygenTank/Button" to="." method="_on_oxygen_upgraded"]
 [connection signal="pressed" from="baza_gui/Control/Upgrades/throtle_speed/Button" to="." method="_on_throtel_speed"]
 [connection signal="pressed" from="baza_gui/Control/Upgrades/engine/Button" to="." method="_on_engine_upgrade"]
 [connection signal="pressed" from="baza_gui/Control/Items/Button" to="." method="sellItems"]
