@@ -19,6 +19,8 @@ func _ready():
 	$baza_gui/Control/Upgrades/moneysDisplayer.text = "$ %d"%[money]
 	$baza_gui/Control/Upgrades/engine/upgradeProgress.max_value = len(engine_upgrades)
 	$baza_gui/Control/Upgrades/throtle_speed/upgradeProgress.max_value = len(throtel_upgrades)
+	push_warning("NO SUCHA test")
+	
 	
 func _on_area_entered(body: Node2D) -> void:
 	if body.name == "Submariner":
@@ -26,6 +28,7 @@ func _on_area_entered(body: Node2D) -> void:
 		my_ui.visible = false
 		keyHint.visible = true
 		playerRef = body as Submariner
+		inv = playerRef.get_node("CollectorModule")
 
 func _on_area_exited(body: Node2D) -> void:
 	if body.name == "Submariner":
@@ -34,6 +37,7 @@ func _on_area_exited(body: Node2D) -> void:
 		keyHint.visible = false
 		
 var playerRef : Submariner = null
+var inv : CollectorModule = null
 
 func _process(delta):
 	if player_in_zone and Input.is_action_just_pressed("interact"):
@@ -67,4 +71,13 @@ func _on_throtel_speed() -> void:
 		set_moneys(money-upgrade_cost)
 		$baza_gui/Control/Upgrades/throtle_speed/upgradeProgress.value+=1
 
-		
+var itemsValue = {"shoe":10,"aquamarine":50,"amethyst":100,"gold":200,"ruby":500}
+
+func sellItems():
+	for item in inv.inventory:
+		if item in itemsValue.keys():
+			money+= itemsValue[item]
+		else:
+			push_warning("NO SUCHA ITEM ", item)
+	inv.inventory.clear()
+	
