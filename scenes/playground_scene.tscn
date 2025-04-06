@@ -17,10 +17,6 @@
 position = Vector2(7, 28)
 texture = ExtResource("1_64foh")
 
-[node name="Submariner" parent="." instance=ExtResource("1_jpd4k")]
-position = Vector2(-1, 0)
-WATER_RESISTANCE = 2
-
 [node name="bazunia" parent="." instance=ExtResource("3_ybuwm")]
 position = Vector2(165, 4)
 
@@ -41,6 +37,8 @@ position = Vector2(-270, 445)
 
 [node name="aquamarine" parent="." instance=ExtResource("11_xfepj")]
 position = Vector2(-266, 349)
+
+[node name="Submariner" parent="." instance=ExtResource("1_jpd4k")]
 
 [node name="scrap" parent="." instance=ExtResource("6_q6pdw")]
 position = Vector2(0, 310)

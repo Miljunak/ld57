@@ -12,9 +12,9 @@ class_name Submariner
 @export var INPUT_THRESHOLD = 1
 @export var BUYANCY_CLAMP = 20
 @export var MAX_HEALTH = 100
-@export var BOUYANCY = 0
-@export var PROPULSION = 0.0
 
+var BOUYANCY = 0
+var PROPULSION = 0.0
 var health = MAX_HEALTH
 var engineUpgradeMaxSpeed = 1
 var throtelChangeSpeedBonus = 0
@@ -92,6 +92,7 @@ func clamp_propulsion() -> float:
 
 func clamp_bouyancy() -> float:
 	var clamped_bouyancy = clamp(BOUYANCY, MIN_BUOYANCY, MAX_BUOYANCY)
+	BOUYANCY = clamped_bouyancy
 	return 0.0 if abs(BOUYANCY) < BUYANCY_CLAMP else clamped_bouyancy
 
 func set_lever_pos(prop):
