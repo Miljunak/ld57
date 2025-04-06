@@ -14,13 +14,23 @@ func set_moneys(val: int) -> void:
 		$baza_gui/Control/Upgrades/moneysDisplayer.text =  "$ %d"%[money]
 		
 
+
 func _ready():
 	my_ui.visible = false
 	$baza_gui/Control/Upgrades/moneysDisplayer.text = "$ %d"%[money]
 	$baza_gui/Control/Upgrades/engine/upgradeProgress.max_value = len(engine_upgrades)
 	$baza_gui/Control/Upgrades/throtle_speed/upgradeProgress.max_value = len(throtel_upgrades)
 	push_warning("NO SUCHA test")
-	
+
+func load_inv():
+	var itList : ItemList= $baza_gui/Control/Items/ItemList
+	itList.clear()
+	var colMod : CollectorModule = playerRef.get_node("CollectorModule")
+	var sum = 0
+	for it in colMod.inventory:
+		itList.add_item("%s | %d" % [it, itemsValue[it]])
+		sum += itemsValue[it]
+	$baza_gui/Control/Items/TotalPriceTag.text = "+ %d$" % [sum]
 	
 func _on_area_entered(body: Node2D) -> void:
 	if body.name == "Submariner":
@@ -29,6 +39,7 @@ func _on_area_entered(body: Node2D) -> void:
 		keyHint.visible = true
 		playerRef = body as Submariner
 		inv = playerRef.get_node("CollectorModule")
+		load_inv()
 
 func _on_area_exited(body: Node2D) -> void:
 	if body.name == "Submariner":
@@ -73,11 +84,16 @@ func _on_throtel_speed() -> void:
 
 var itemsValue = {"shoe":10,"aquamarine":50,"amethyst":100,"gold":200,"ruby":500}
 
-func sellItems():
+
+
+func sellItems() -> void:
+	var sellSum = 0
 	for item in inv.inventory:
 		if item in itemsValue.keys():
-			money+= itemsValue[item]
+			sellSum += itemsValue[item]
 		else:
 			push_warning("NO SUCHA ITEM ", item)
 	inv.inventory.clear()
+	load_inv()
+	set_moneys(money+sellSum)
 	

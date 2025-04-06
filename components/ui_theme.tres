@@ -7,5 +7,6 @@ bg_color = Color(0.261352, 0.0473899, 0.0594648, 1)
 bg_color = Color(0.533701, 0.659145, 0, 1)
 
 [resource]
+Button/constants/outline_size = 6
 ProgressBar/styles/background = SubResource("StyleBoxFlat_ypg3l")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_pr4mh")
