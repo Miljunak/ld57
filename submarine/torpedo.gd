@@ -18,8 +18,16 @@ func setup(pos,dir, str, lifetime):
 
 var launched = false
 func _physics_process(delta: float) -> void:
-	velocity = direction*strength
-	move_and_slide()
+	#velocity = direction*strength
+	var col = move_and_collide(direction*strength)
+	if col:
+		var body = col.get_collider()
+		if body is base_monster:
+			print("Yup, it's a monster!")
+			body.damage("torpedo")
+		queue_free()
+		
+	#if coli
 var timer = 0.0
 
 func _ready() -> void:

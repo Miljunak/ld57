@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 		oxygen -= breathing_speed*delta
 	oxygenProgressBar.value = oxygen
 	oxygenProgressBar.max_value = MAX_OXYGEN
-	print(oxygen, " ",MAX_OXYGEN)
 	if (oxygen < 0):
 		if no_oxygen_timer >= OXYGEN_DAMAGE_INTERVAL:
 			no_oxygen.emit()

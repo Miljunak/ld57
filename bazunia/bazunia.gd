@@ -18,7 +18,6 @@ func set_moneys(val: int) -> void:
 		$baza_gui/Control/Upgrades/moneysDisplayer.text =  "$ %d"%[money]
 		
 
-
 func _ready():
 	my_ui.visible = false
 	$baza_gui/Control/Upgrades/moneysDisplayer.text = "$ %d"%[money]
