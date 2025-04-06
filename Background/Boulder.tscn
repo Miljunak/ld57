@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://drddhou0bag2t"]
+
+[ext_resource type="Texture2D" uid="uid://f21e5dqy6gya" path="res://assets/BOULDER1.png" id="1_oomux"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s7kcj"]
+radius = 74.0068
+
+[node name="Boulder" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_oomux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_s7kcj")
