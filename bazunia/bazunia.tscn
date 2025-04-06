@@ -1,17 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://prwkmgih00pp"]
+[gd_scene load_steps=14 format=3 uid="uid://prwkmgih00pp"]
 
 [ext_resource type="Script" uid="uid://cuighw3s7lp2r" path="res://bazunia/bazunia.gd" id="1_t0pju"]
 [ext_resource type="Texture2D" uid="uid://m5snyu36ktfb" path="res://assets/ui/space_ico.png" id="2_infe6"]
 [ext_resource type="Theme" uid="uid://bjy2d8mupfxbd" path="res://components/ui_theme.tres" id="3_t104p"]
-[ext_resource type="Texture2D" uid="uid://derutrcv2yy" path="res://assets/base1.png" id="4_cf065"]
-[ext_resource type="Texture2D" uid="uid://dh4fv58o3idmq" path="res://assets/rocks.png" id="5_n4xso"]
+[ext_resource type="Texture2D" uid="uid://cqv55i0pdka30" path="res://assets/base1.png" id="4_cf065"]
+[ext_resource type="Texture2D" uid="uid://cnsdmywr26d0f" path="res://assets/caveEntrance.png" id="5_ew4jx"]
+[ext_resource type="Texture2D" uid="uid://bvs3gbfbfg1tf" path="res://assets/rocks.png" id="5_n4xso"]
 [ext_resource type="Texture2D" uid="uid://cfdrw4lr8iflu" path="res://assets/submarinerReference1.png" id="6_ew4jx"]
-[ext_resource type="Texture2D" uid="uid://bcj2x4g1p6hom" path="res://assets/cave_back.png" id="7_6qyca"]
-
-[sub_resource type="Gradient" id="Gradient_cf065"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_n4xso"]
-gradient = SubResource("Gradient_cf065")
+[ext_resource type="Texture2D" uid="uid://0untyi5yymwf" path="res://assets/cave_back.png" id="7_6qyca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_infe6"]
 size = Vector2(102, 100)
@@ -34,13 +30,6 @@ outline_color = Color(0, 0, 0, 1)
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Gradient" id="Gradient_infe6"]
-colors = PackedColorArray(0.727675, 0.452969, 0.600146, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t104p"]
-gradient = SubResource("Gradient_infe6")
-fill_from = Vector2(0.747863, 0.316239)
-
 [node name="bazunia" type="Node2D"]
 z_index = 2
 script = ExtResource("1_t0pju")
@@ -51,13 +40,14 @@ texture_filter = 1
 position = Vector2(0, -43)
 texture = ExtResource("2_infe6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_n4xso")
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_infe6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+texture = ExtResource("5_ew4jx")
 
 [node name="baza_gui" type="CanvasLayer" parent="."]
 
@@ -341,11 +331,6 @@ visibility_layer = 2
 position = Vector2(1750.4, 532.562)
 scale = Vector2(7.20052, 7.20052)
 texture = ExtResource("4_cf065")
-
-[node name="Sprite2D" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
-position = Vector2(1168, 5)
-scale = Vector2(1, 1.0625)
-texture = SubResource("GradientTexture2D_t104p")
 
 [node name="Rocks" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
 z_index = 1
