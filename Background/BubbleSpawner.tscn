@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyips17fym34n"]
+
+[sub_resource type="GDScript" id="GDScript_g07u6"]
+script/source = "extends Node2D  # or whatever your main script extends
+
+@export var bubble_scene: PackedScene
+@export var bubble_spawn_area: Rect2 = Rect2(0, 300, 500, 50)
+@export var bubble_spawn_interval: Vector2 = Vector2(1.0, 3.0)
+
+var spawn_timer := 0.0
+var next_spawn_time := 1.0
+
+func _ready():
+	randomize()
+	_set_next_spawn_time()
+
+func _process(delta):
+	spawn_timer += delta
+	if spawn_timer >= next_spawn_time:
+		spawn_timer = 0.0
+		_spawn_bubble()
+		_set_next_spawn_time()
+
+func _spawn_bubble():
+	var bubble = bubble_scene.instantiate()
+	var pos = Vector2(
+		randf_range(bubble_spawn_area.position.x, bubble_spawn_area.end.x),
+		randf_range(bubble_spawn_area.position.y, bubble_spawn_area.end.y)
+	)
+	bubble.position = pos
+	$BubbleContainer.add_child(bubble)
+
+func _set_next_spawn_time():
+	next_spawn_time = randf_range(bubble_spawn_interval.x, bubble_spawn_interval.y)
+"
+
+[node name="BubbleSpawner" type="Node2D"]
+script = SubResource("GDScript_g07u6")

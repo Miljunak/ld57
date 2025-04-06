@@ -1,19 +1,15 @@
 extends Node2D
 
-@export var rise_speed: float = 50.0      # pixels per second
-@export var lifetime: float = 5        # seconds before disappearing
-
+var rise_speed := 10.0
+var lifetime := 0.0
 var timer := 0.0
 
 func _ready():
-	# Optional: set starting opacity
-	modulate.a = 1.0  # fully visible
+	rise_speed = randf_range(5.0, 30.0)
+	lifetime = randf_range(5.0, 120.0)
 
-func _process(delta: float):
-	# Move up
+func _process(delta):
 	position.y -= rise_speed * delta
-	
-	# Update timer
 	timer += delta
 	if timer >= lifetime:
-		queue_free()  # remove the bubble from the scene
+		queue_free()
