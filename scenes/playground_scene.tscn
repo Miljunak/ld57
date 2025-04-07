@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://i8fdn5mjpqg4"]
+[gd_scene load_steps=10 format=3 uid="uid://i8fdn5mjpqg4"]
 
 [ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="1_64foh"]
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_jpd4k"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bbfjhwlo1k8fr" path="res://components/scrap_template.tscn" id="6_q6pdw"]
 [ext_resource type="PackedScene" uid="uid://boomj3emhw4h1" path="res://components/ruby.tscn" id="7_jaapn"]
 [ext_resource type="PackedScene" uid="uid://doohxxs3b8uo4" path="res://components/amethyst.tscn" id="8_kw7rb"]
+[ext_resource type="PackedScene" uid="uid://bym3l2vubyi0t" path="res://scenes/treasure.tscn" id="9_i6abk"]
 [ext_resource type="PackedScene" uid="uid://bxyokjo25f7nt" path="res://components/aquamarine.tscn" id="11_xfepj"]
 
 [node name="PlaygroundScene" type="Node2D"]
@@ -34,9 +35,11 @@ position = Vector2(-266, 349)
 
 [node name="scrap" parent="." instance=ExtResource("6_q6pdw")]
 position = Vector2(0, 310)
-scrap_name = "shoe"
 
 [node name="CollisionShape2D" parent="scrap" index="1"]
 position = Vector2(3, 4)
+
+[node name="Treasure" parent="." instance=ExtResource("9_i6abk")]
+position = Vector2(-848, 487)
 
 [editable path="scrap"]

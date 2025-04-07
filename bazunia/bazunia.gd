@@ -32,8 +32,9 @@ func load_inv():
 	var colMod : CollectorModule = playerRef.get_node("CollectorModule")
 	var sum = 0
 	for it in colMod.inventory:
-		itList.add_item("%s | %d" % [it, itemsValue[it]])
-		sum += itemsValue[it]
+		if it in itemsValue.keys():
+			itList.add_item("%s | %d" % [it, itemsValue[it]])
+			sum += itemsValue[it]
 	$baza_gui/Control/Items/TotalPriceTag.text = "+ %d$" % [sum]
 	
 func _on_area_entered(body: Node2D) -> void:
@@ -86,6 +87,8 @@ var engine_upgrades = [{"maxSpeedBonus":1,"cost":100},
 					   {"maxSpeedBonus":1,"cost":400}]
 var currentEngine = 0
 func _on_engine_upgrade() -> void:
+	if(currentEngine>=len(engine_upgrades)):
+		return
 	var upgrade_cost = engine_upgrades[currentEngine]["cost"]
 	if money > upgrade_cost:
 		playerRef.engineUpgradeMaxSpeed += engine_upgrades[currentEngine]["maxSpeedBonus"]
@@ -94,14 +97,16 @@ func _on_engine_upgrade() -> void:
 		$baza_gui/Control/Upgrades/engine/upgradeProgress.value+=1
 
 #Upgrade zmieniajacy jak szybko mozna ta dzwignie przyspieszenia przesunac
-var throtel_upgrades = [{"throtel_change_bonus":.2,"cost":100},
-					   {"throtel_change_bonus":.1,"cost":200},
-					   {"throtel_change_bonus":.1,"cost":300},
+var throtel_upgrades = [{"throtel_change_bonus":.02,"cost":100},
+					   {"throtel_change_bonus":.025,"cost":200},
 					   {"throtel_change_bonus":.05,"cost":300},
-					   {"throtel_change_bonus":.1,"cost":400}]
+					   {"throtel_change_bonus":.05,"cost":300},
+					   {"throtel_change_bonus":.05,"cost":400}]
 var currentThrotel = 0
 
 func _on_throtel_speed() -> void:
+	if(currentThrotel>=len(throtel_upgrades)):
+		return
 	var upgrade_cost = throtel_upgrades[currentThrotel]["cost"]
 	if money > upgrade_cost:
 		playerRef.throtelChangeSpeedBonus += throtel_upgrades[currentThrotel]["throtel_change_bonus"]
@@ -127,12 +132,14 @@ func sellItems() -> void:
 
 var oxygen_upgrades = [{"bonus_max_oxygen":20,"cost":100},
 					   {"bonus_max_oxygen":25,"cost":200},
-					   {"bonus_max_oxygen":25,"cost":300},
-					   {"bonus_max_oxygen":25,"cost":300},
-					   {"bonus_max_oxygen":25,"cost":400}]
+					   {"bonus_max_oxygen":50,"cost":300},
+					   {"bonus_max_oxygen":100,"cost":300},
+					   {"bonus_max_oxygen":100,"cost":800}]
 var current_oxygen = 0
 
 func _on_oxygen_upgraded() -> void:
+	if(current_oxygen>=len(oxygen_upgrades)):
+		return
 	var upgrade_cost = oxygen_upgrades[current_oxygen]["cost"]
 	if money > upgrade_cost:
 		playerRef.upgrade_oxygen(oxygen_upgrades[current_oxygen]["bonus_max_oxygen"])
@@ -147,6 +154,8 @@ var ballast_upgrade = [{"ballast_upgrade_bonus":.2,"cost":100},
 					   {"ballast_upgrade_bonus":.1,"cost":400}]
 var current_ballast = 0
 func _on_ballast_pump_upgraded() -> void:
+	if(current_ballast>=len(ballast_upgrade)):
+		return
 	var upgrade_cost = throtel_upgrades[current_ballast]["cost"]
 	if money > upgrade_cost:
 		playerRef.BUOYANCY_CHANGE_SPEED += ballast_upgrade[current_ballast]["ballast_upgrade_bonus"]

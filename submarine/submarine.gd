@@ -29,6 +29,8 @@ const SHAKE_INTENSITY = 10
 const SHAKE_DURATION = 0.2
 var is_absolutely_immune = false
 
+var boosters = 0
+
 @onready var waterLevel = $Camera2D/Control/tank/waterLevel
 @onready var lever = $Camera2D/Control/lever
 @onready var sprite : AnimatedSprite2D = $aSprite

@@ -162,10 +162,10 @@ horizontal_alignment = 1
 [node name="torpedosek\\" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 132.0
-offset_top = 575.0
-offset_right = 656.0
-offset_bottom = 626.0
+offset_left = 128.0
+offset_top = 499.0
+offset_right = 652.0
+offset_bottom = 550.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="torpedosek\\"]
 layout_mode = 1
@@ -185,13 +185,92 @@ bbcode_enabled = true
 text = "use [img]res://assets/keys_e.png[/img] to launch a torpedo"
 horizontal_alignment = 1
 
+[node name="booster" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 130.0
+offset_top = 898.0
+offset_right = 654.0
+offset_bottom = 1011.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="booster"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -33.5
+offset_right = 212.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "press Q to use your booster and launch your submarine downoards"
+horizontal_alignment = 1
+
+[node name="torpedosek\\2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 130.0
+offset_top = 395.0
+offset_right = 654.0
+offset_bottom = 484.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="torpedosek\\2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -32.5
+offset_right = 236.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "use spacebar to collect scrap
+that you can sell in the cave"
+horizontal_alignment = 1
+
+[node name="torpedosek\\3" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 132.0
+offset_top = 296.0
+offset_right = 656.0
+offset_bottom = 385.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="torpedosek\\3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -32.5
+offset_right = 236.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Allegedly there is a big treasure somewhere in the deep ocean"
+horizontal_alignment = 1
+
 [node name="cave" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 127.0
-offset_top = 644.0
+offset_top = 563.0
 offset_right = 651.0
-offset_bottom = 953.0
+offset_bottom = 872.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="cave"]
 layout_mode = 1

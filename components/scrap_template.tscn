@@ -9,6 +9,7 @@ radius = 17.0294
 
 [node name="scrap" type="Area2D" groups=["scrap"]]
 script = ExtResource("1_dnsyq")
+scrap_name = "shoe"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

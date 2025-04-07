@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://i650fpjm880a"]
+[gd_scene load_steps=5 format=3 uid="uid://bym3l2vubyi0t"]
 
 [ext_resource type="Script" uid="uid://dw6djlp28jr4m" path="res://scenes/treasure.gd" id="1_it12x"]
-[ext_resource type="Texture2D" uid="uid://dhi7ao4sjrk6v" path="res://assets/treasure.png" id="2_0g4qu"]
+[ext_resource type="Texture2D" uid="uid://87ycrafqisq3" path="res://assets/treasure.png" id="2_0g4qu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h85lg"]
 size = Vector2(60, 45.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_it12x"]
+font_size = 76
 
 [node name="Treasure" type="Node2D"]
 script = ExtResource("1_it12x")
@@ -34,9 +37,10 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="WinModal/Panel"]
 layout_mode = 0
-offset_left = -56.0
-offset_top = -39.0
-offset_right = 87.0
-offset_bottom = 10.0
+offset_left = -293.0
+offset_top = -45.0
+offset_right = 385.0
+offset_bottom = 233.0
 text = "U WIN DA GAME!!!!"
+label_settings = SubResource("LabelSettings_it12x")
 uppercase = true
