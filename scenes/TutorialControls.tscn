@@ -25,7 +25,7 @@ script = ExtResource("1_igcka")
 layout_mode = 1
 anchors_preset = -1
 offset_left = 1348.0
-offset_top = 448.0
+offset_top = 440.0
 offset_right = 1872.0
 offset_bottom = 610.0
 
@@ -36,10 +36,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -258.0
-offset_top = -68.0
-offset_right = 255.0
-offset_bottom = 61.0
+offset_left = -256.0
+offset_top = -72.0
+offset_right = 257.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 24
@@ -65,7 +65,7 @@ label_settings = SubResource("LabelSettings_0uwtd")
 layout_mode = 1
 anchors_preset = -1
 offset_left = 741.0
-offset_top = 771.0
+offset_top = 762.0
 offset_right = 1265.0
 offset_bottom = 876.0
 
@@ -77,7 +77,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -243.0
-offset_top = -53.5
+offset_top = -54.5
 offset_right = 252.0
 offset_bottom = 45.5
 grow_horizontal = 2
@@ -87,6 +87,7 @@ bbcode_enabled = true
 text = "use [img]res://assets/keys_a.png[/img] and [img]res://assets/keys_d.png[/img] to control the search light
 use your light to scare away some angry fishes
 "
+scroll_active = false
 horizontal_alignment = 1
 
 [node name="Steering" type="Panel" parent="."]
@@ -199,21 +200,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -238.0
-offset_top = -136.5
-offset_right = 238.0
-offset_bottom = 139.5
+offset_left = -252.0
+offset_top = -141.5
+offset_right = 252.0
+offset_bottom = 144.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "This is a cave, your new home: 
+text = "This is the cave, your new home: 
 
 
 
 
 
-Press space to enter it to buy upgrades and restore your oxygen"
+Press space to enter it 
+and buy upgrades or restore your oxygen"
 horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="cave"]
