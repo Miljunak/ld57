@@ -20,7 +20,7 @@ var DAMAGE_DEALT = 10
 var DAMAGE_RANGE = 10
 var MAX_HEALTH = 100
 
-@onready var player = get_node("../Submariner")
+@onready var player = get_tree().current_scene.get_node("Submariner")
 @onready var sprite = $AnimatedSprite2D
 
 var health = MAX_HEALTH
