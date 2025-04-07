@@ -3,14 +3,15 @@ class_name Submariner
 
 @export var SPEED = 70.0
 @export var WATER_RESISTANCE = 3
-@export var BUOYANCY_CHANGE_SPEED = 1
-@export var MIN_BUOYANCY = -150
-@export var MAX_BUOYANCY = 150
-@export var MAX_DESCENT = 150
+@export var BUOYANCY_CHANGE_SPEED = .5
+@export var MIN_BUOYANCY = -80
+@export var MAX_BUOYANCY = 50
+@export var MAX_DESCENT = 200
+@export var MIN_DESCENT = -250
 @export var MAX_PROPULSION = 9
 @export var PROPULSION_CHANGE_SPEED = 0.1
 @export var INPUT_THRESHOLD = 1
-@export var BUYANCY_CLAMP = 20
+@export var BUYANCY_CLAMP = 5
 @export var MAX_HEALTH = 100
 
 var BOUYANCY = 0
@@ -39,6 +40,7 @@ const SHAKE_DURATION = 0.2
 
 var low_health_played = false
 var baza : Bazunia
+var particlerStartPos = null
 
 func _ready() -> void:
 	waterLevel.play("default")
@@ -49,6 +51,7 @@ func _ready() -> void:
 	baza = get_node("../bazunia")
 	baza.connect("base_entered",on_base_entered)
 	baza.connect("base_exited",on_base_exited)
+	particlerStartPos = $particler.position
 func _physics_process(delta: float) -> void:
 	update_immunity(delta)
 	update_flicker(delta)
@@ -69,11 +72,11 @@ func _physics_process(delta: float) -> void:
 
 	var clampedBoyancy = clamp_bouyancy()
 	set_boyancy_level(BOUYANCY)
-	velocity.y = min(max((((clampedBoyancy * 10) - (WATER_RESISTANCE * velocity.y)) * delta + velocity.y), -MAX_DESCENT), MAX_DESCENT)
+	velocity.y = min(max((((clampedBoyancy * 10) - (WATER_RESISTANCE * velocity.y)) * delta + velocity.y), MIN_DESCENT), MAX_DESCENT)
 
-	if clampedBoyancy < -BUYANCY_CLAMP:
+	if clampedBoyancy <= -BUYANCY_CLAMP:
 		$Camera2D/Control/direction.play("up")
-	elif clampedBoyancy > BUYANCY_CLAMP:
+	elif clampedBoyancy >= BUYANCY_CLAMP:
 		$Camera2D/Control/direction.play("down")
 	else:
 		$Camera2D/Control/direction.play("neutral")
@@ -81,13 +84,19 @@ func _physics_process(delta: float) -> void:
 	if clampedProp != 0:
 		$aSprite.flip_h = clampedProp < 0
 		$aSprite.play("running")
+		$particler.emitting = true
+		if velocity.x > 0:
+			$particler.position = particlerStartPos
+		else:
+			$particler.position = -1 * particlerStartPos
 	else:
 		$aSprite.play("idle")
-
+		$particler.emitting = false
+	print("velo ",velocity.y, " | balast: ", BOUYANCY)
 	move_and_slide()
 
 func set_boyancy_level(boya):
-	waterLevel.offset.y = -boya * 0.1
+	waterLevel.offset.y = -boya * 0.4
 
 func clamp_propulsion() -> float:
 	PROPULSION = clamp(PROPULSION, -MAX_PROPULSION, MAX_PROPULSION)

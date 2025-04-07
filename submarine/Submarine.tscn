@@ -205,17 +205,6 @@ offset = Vector2(29.415, 0)
 texture_scale = 0.05
 script = ExtResource("4_88vpn")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="searchLight"]
-position = Vector2(-4.20227, 0.149219)
-scale = Vector2(0.144906, 0.149219)
-amount = 32
-lifetime = 0.4
-speed_scale = 0.3
-lifetime_randomness = 0.33
-emission_shape = 1
-emission_sphere_radius = 8.22
-gravity = Vector2(0, -268.79)
-
 [node name="Area2D" type="Area2D" parent="searchLight"]
 scale = Vector2(0.144906, 0.149219)
 collision_layer = 3
@@ -223,6 +212,17 @@ collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="searchLight/Area2D"]
 polygon = PackedVector2Array(29.9999, 0, 286, 91, 425, -2, 291, -88)
+
+[node name="particler" type="CPUParticles2D" parent="."]
+position = Vector2(-29, 0.999999)
+scale = Vector2(1, 0.999999)
+amount = 32
+lifetime = 0.4
+speed_scale = 0.3
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 8.22
+gravity = Vector2(0, -268.79)
 
 [node name="aSprite" type="AnimatedSprite2D" parent="."]
 light_mask = 1024

@@ -1,14 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://i8fdn5mjpqg4"]
+[gd_scene load_steps=9 format=3 uid="uid://i8fdn5mjpqg4"]
 
 [ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="1_64foh"]
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_jpd4k"]
 [ext_resource type="PackedScene" uid="uid://prwkmgih00pp" path="res://bazunia/bazunia.tscn" id="3_ybuwm"]
-[ext_resource type="PackedScene" uid="uid://jjein1jjs4xa" path="res://ai/shark.tscn" id="4_iya78"]
 [ext_resource type="PackedScene" uid="uid://de5d74ts4c7yh" path="res://components/gold.tscn" id="6_f7d5k"]
 [ext_resource type="PackedScene" uid="uid://bbfjhwlo1k8fr" path="res://components/scrap_template.tscn" id="6_q6pdw"]
 [ext_resource type="PackedScene" uid="uid://boomj3emhw4h1" path="res://components/ruby.tscn" id="7_jaapn"]
 [ext_resource type="PackedScene" uid="uid://doohxxs3b8uo4" path="res://components/amethyst.tscn" id="8_kw7rb"]
-[ext_resource type="PackedScene" uid="uid://cx6ewf25an223" path="res://ai/angler.tscn" id="10_kw7rb"]
 [ext_resource type="PackedScene" uid="uid://bxyokjo25f7nt" path="res://components/aquamarine.tscn" id="11_xfepj"]
 
 [node name="PlaygroundScene" type="Node2D"]
@@ -19,9 +17,6 @@ texture = ExtResource("1_64foh")
 
 [node name="bazunia" parent="." instance=ExtResource("3_ybuwm")]
 position = Vector2(-147, 266)
-
-[node name="sharky" parent="." instance=ExtResource("4_iya78")]
-position = Vector2(217, 242)
 
 [node name="gold" parent="." instance=ExtResource("6_f7d5k")]
 position = Vector2(-67, 410)
@@ -43,8 +38,5 @@ scrap_name = "shoe"
 
 [node name="CollisionShape2D" parent="scrap" index="1"]
 position = Vector2(3, 4)
-
-[node name="Angler" parent="." instance=ExtResource("10_kw7rb")]
-position = Vector2(-63, 610)
 
 [editable path="scrap"]
