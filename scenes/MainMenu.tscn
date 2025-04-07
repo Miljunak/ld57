@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://cnmrpdnk7bh4s" path="res://scenes/Water.tres" id="1_0ykhv"]
 [ext_resource type="Script" uid="uid://dj45mvb6rp43b" path="res://scenes/main_menu.gd" id="1_826wr"]
-[ext_resource type="Texture2D" uid="uid://cutyni1o4cjbe" path="res://assets/tilesAlternative.png" id="2_2wh52"]
+[ext_resource type="Texture2D" uid="uid://b2hvhcdotou4u" path="res://assets/tilesAlternative.png" id="2_2wh52"]
 [ext_resource type="Texture2D" uid="uid://sh346ei3yayi" path="res://assets/lightmask.png" id="3_2wh52"]
 [ext_resource type="Texture2D" uid="uid://b8oqhwabd55jf" path="res://assets/Shark.png" id="4_l72w3"]
 [ext_resource type="Script" uid="uid://mybwtq1yjg25" path="res://scenes/animation_player.gd" id="4_ow34m"]

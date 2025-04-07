@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://cuighw3s7lp2r" path="res://bazunia/bazunia.gd" id="1_t0pju"]
 [ext_resource type="Texture2D" uid="uid://m5snyu36ktfb" path="res://assets/ui/space_ico.png" id="2_infe6"]
 [ext_resource type="Theme" uid="uid://bjy2d8mupfxbd" path="res://components/ui_theme.tres" id="3_t104p"]
-[ext_resource type="Texture2D" uid="uid://derutrcv2yy" path="res://assets/base1.png" id="4_cf065"]
-[ext_resource type="Texture2D" uid="uid://j6p6ekobteoi" path="res://assets/caveEntrance.png" id="5_ew4jx"]
-[ext_resource type="Texture2D" uid="uid://dh4fv58o3idmq" path="res://assets/rocks.png" id="5_n4xso"]
+[ext_resource type="Texture2D" uid="uid://dektne7sowdsq" path="res://assets/base1.png" id="4_cf065"]
+[ext_resource type="Texture2D" uid="uid://dcjl80io6o4w2" path="res://assets/caveEntrance.png" id="5_ew4jx"]
+[ext_resource type="Texture2D" uid="uid://g0us14rehn6f" path="res://assets/rocks.png" id="5_n4xso"]
 [ext_resource type="Texture2D" uid="uid://cfdrw4lr8iflu" path="res://assets/submarinerReference1.png" id="6_ew4jx"]
-[ext_resource type="Texture2D" uid="uid://bcj2x4g1p6hom" path="res://assets/cave_back.png" id="7_6qyca"]
+[ext_resource type="Texture2D" uid="uid://dcrd5vlpynhqt" path="res://assets/cave_back.png" id="7_6qyca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_infe6"]
-size = Vector2(102, 100)
+size = Vector2(140.708, 132.783)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cf065"]
 font_size = 75
@@ -48,6 +48,8 @@ texture = ExtResource("5_ew4jx")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 9.5)
+scale = Vector2(1.19396, 1.07694)
 shape = SubResource("RectangleShape2D_infe6")
 
 [node name="baza_gui" type="CanvasLayer" parent="."]
