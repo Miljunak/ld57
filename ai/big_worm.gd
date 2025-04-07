@@ -38,10 +38,12 @@ func update_swim_direction(delta: float):
 		var smooth_angle = lerp_angle(sprite.rotation, target_angle, delta * rotation_drag)
 		
 		sprite.rotation = smooth_angle
+		sprite.flip_h = swim_direction.x < 0
 		$BodyShape.rotation = smooth_angle
 		
 		var offset = Vector2.RIGHT.rotated(smooth_angle) * -80
 		$DamageHitbox/DamageShape.position = offset
+		
 
 func _on_damage_hitbox_body_entered(body: Node2D) -> void:
 	if body == player:
