@@ -1,6 +1,6 @@
 extends base_monster
 
-var max_speed = 50
+var max_speed = 100
 var rotation_drag = 0.5
 var player_in_hitbox = false
 var damage_tick_timer = 0.0

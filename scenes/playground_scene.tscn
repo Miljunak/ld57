@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bym3l2vubyi0t" path="res://scenes/treasure.tscn" id="9_i6abk"]
 [ext_resource type="PackedScene" uid="uid://bxyokjo25f7nt" path="res://components/aquamarine.tscn" id="11_xfepj"]
 
-[node name="PlaygroundScene" type="Node2D"]
+[node name="PlaygroundScene2" type="Node2D"]
 
 [node name="Tempbackground" type="Sprite2D" parent="."]
 position = Vector2(7, 28)
