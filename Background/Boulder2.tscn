@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://pgeurra5yrh"]
+[gd_scene load_steps=3 format=3 uid="uid://mvjsifjgtlh5"]
 
-[ext_resource type="Texture2D" uid="uid://bc72ioevof7oq" path="res://assets/BOULDER2.png" id="1_nksrm"]
+[ext_resource type="Texture2D" uid="uid://blh3ovjngxq3" path="res://assets/BOULDER2.png" id="1_nksrm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nksrm"]
 radius = 50.0
@@ -11,6 +11,7 @@ height = 114.0
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
 texture = ExtResource("1_nksrm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

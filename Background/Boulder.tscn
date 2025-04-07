@@ -10,8 +10,10 @@ radius = 61.42
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
 texture = ExtResource("1_oomux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+texture_filter = 1
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_s7kcj")
