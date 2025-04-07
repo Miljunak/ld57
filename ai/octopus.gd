@@ -1,6 +1,6 @@
 extends base_monster
 
-var max_speed = 185
+var max_speed = 350
 var acceleration_duration = 0.8
 var deceleration_duration = 0.5
 var swim_cycle_duration = acceleration_duration + deceleration_duration
