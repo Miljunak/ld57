@@ -87,7 +87,6 @@ func _physics_process(delta: float) -> void:
 		sprite.play("running")
 		var speed_scale = abs((abs(clampedProp-MAX_PROPULSION))/MAX_PROPULSION+1)
 		sprite.speed_scale = (speed_scale)
-		print("playbak speed ",speed_scale)
 		$particler.emitting = true
 		if velocity.x > 0:
 			$particler.position = particlerStartPos
@@ -125,7 +124,6 @@ func apply_damage(amount: int) -> void:
 	if health <= 0:
 		die()
 	health = clamp(health, 0, MAX_HEALTH)
-	print(health)
 	is_immune = true
 	immunity_timer = IMMUNITY_DURATION
 	flicker_timer = 0.0

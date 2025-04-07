@@ -61,6 +61,34 @@ offset_bottom = 358.996
 text = "BALLAST TANK"
 label_settings = SubResource("LabelSettings_0uwtd")
 
+[node name="Light" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 741.0
+offset_top = 771.0
+offset_right = 1265.0
+offset_bottom = 876.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Light"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -53.5
+offset_right = 252.0
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "use [img]res://assets/keys_a.png[/img] and [img]res://assets/keys_d.png[/img] to control the search light
+use your light to scare away some angry fishes
+"
+horizontal_alignment = 1
+
 [node name="Steering" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1

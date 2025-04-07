@@ -1,6 +1,6 @@
 extends base_monster
 
-var max_speed = 400
+var max_speed = 350
 var acceleration_duration = 0.8
 var deceleration_duration = 0.5
 var swim_cycle_duration = acceleration_duration + deceleration_duration
@@ -10,7 +10,6 @@ func _ready():
 	sprite.play("swim")
 	bravery = 3
 	max_chase_distance = 1000.0
-
 	DAMAGE_DEALT = 25
 	DAMAGE_RANGE = 30
 	super._ready()
@@ -32,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		
 	check_player_collision()
 	player_too_far = position.distance_to(player.position) > max_chase_distance
-	if (player and !player_too_far):
+	if (player and not player_too_far):
 		var escape = -1 if is_scared else 1
 		position += swim_direction * speed * delta * escape
 
