@@ -190,6 +190,7 @@ scale = Vector2(1.71669, 1.71669)
 color = Color(0.190762, 0.190762, 0.190762, 1)
 energy = 9.94
 blend_mode = 2
+range_z_min = -3
 range_z_max = 256
 range_layer_max = 5
 texture = SubResource("GradientTexture2D_my3mo")
@@ -199,6 +200,7 @@ height = 14.0
 [node name="searchLight" type="PointLight2D" parent="."]
 scale = Vector2(6.90104, 6.70155)
 energy = 1.29
+range_z_min = -3
 range_z_max = 555
 range_layer_max = 5
 range_item_cull_mask = 15
