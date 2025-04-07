@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		
 	check_player_collision()
 	player_too_far = position.distance_to(player.position) > max_chase_distance
-	if (player and !player_too_far):
+	if (player and not player_too_far):
 		var escape = -1 if is_scared else 1
 		position += swim_direction * speed * delta * escape
 

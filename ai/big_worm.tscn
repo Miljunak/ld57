@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7u6clpxv7lbj"]
+[gd_scene load_steps=9 format=3 uid="uid://b7u6clpxv7lbj"]
 
 [ext_resource type="Script" uid="uid://xkyb46payok2" path="res://ai/big_worm.gd" id="1_2o028"]
 [ext_resource type="Texture2D" uid="uid://bix5dt0xlpp2m" path="res://assets/big-worm-Sheet.png" id="2_pcytj"]
@@ -33,15 +33,28 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwlho"]
-size = Vector2(165.75, 57.25)
+size = Vector2(137, 23)
 
-[node name="BigWorm" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pcytj"]
+radius = 23.0
+height = 46.0
+
+[node name="BigWorm" type="CharacterBody2D" groups=["mosnters"]]
 script = ExtResource("1_2o028")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2o028")
 animation = &"swim"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -4)
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -5.5)
 shape = SubResource("RectangleShape2D_fwlho")
+
+[node name="DamageHitbox" type="Area2D" parent="."]
+
+[node name="DamageShape" type="CollisionShape2D" parent="DamageHitbox"]
+position = Vector2(71, 6)
+shape = SubResource("CapsuleShape2D_pcytj")
+
+[connection signal="body_entered" from="DamageHitbox" to="." method="_on_damage_hitbox_body_entered"]
+[connection signal="body_exited" from="DamageHitbox" to="." method="_on_damage_hitbox_body_exited"]

@@ -78,11 +78,13 @@ func trigger_scared():
 func damage(dmg_type="torpedo"):
 	print("monster damaged")
 	health -= 100
-	if(health <= 0 ):
+	if (health <= 0):
 		die()
+
 func die():
 	health = MAX_HEALTH
 	position = start_pos
+
 func check_player_collision():
 	if player != null and position.distance_to(player.position) < DAMAGE_RANGE:
 		player.apply_damage(DAMAGE_DEALT)
