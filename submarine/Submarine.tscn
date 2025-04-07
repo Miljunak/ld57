@@ -231,7 +231,7 @@ texture_filter = 1
 position = Vector2(-3, 0)
 sprite_frames = ExtResource("2_s87fy")
 animation = &"running"
-frame_progress = 0.536649
+frame_progress = 0.300243
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 0)
@@ -262,30 +262,30 @@ text = "U IMPLODED"
 [node name="oxygenBar" type="ProgressBar" parent="Camera2D/Control"]
 layout_mode = 0
 offset_left = 333.0
-offset_top = 13.0
+offset_top = 68.0
 offset_right = 789.0
-offset_bottom = 40.0
+offset_bottom = 95.0
 
 [node name="throtle" type="Sprite2D" parent="Camera2D/Control"]
 texture_filter = 1
-position = Vector2(558, 571.88)
+position = Vector2(558, 529)
 scale = Vector2(3.55499, 3.55499)
 texture = ExtResource("3_t4o5t")
 
 [node name="lever" type="Sprite2D" parent="Camera2D/Control"]
 texture_filter = 1
-position = Vector2(561, 578.88)
+position = Vector2(561, 564)
 scale = Vector2(1.77749, 1.77749)
 texture = ExtResource("3_s87fy")
 
 [node name="direction" type="AnimatedSprite2D" parent="Camera2D/Control"]
-position = Vector2(907, 590)
+position = Vector2(899, 544)
 scale = Vector2(3.98902, 3.98902)
 sprite_frames = ExtResource("5_06tcg")
 animation = &"neutral"
 
 [node name="tank" type="Sprite2D" parent="Camera2D/Control"]
-position = Vector2(1002, 567)
+position = Vector2(994, 520)
 scale = Vector2(2.00264, 2.00264)
 texture = ExtResource("5_4167o")
 
@@ -307,19 +307,19 @@ frame_progress = 0.536956
 
 [node name="BrokenScreenOverlay" type="TextureRect" parent="."]
 light_mask = 1024
-offset_left = -556.0
-offset_top = -311.0
-offset_right = 1663.0
-offset_bottom = 937.0
+offset_left = -483.0
+offset_top = -270.0
+offset_right = 1444.0
+offset_bottom = 814.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_namuc")
 
 [node name="DamagedScreenOverlay" type="TextureRect" parent="."]
 light_mask = 1024
-offset_left = -556.0
-offset_top = -311.0
-offset_right = 1663.0
-offset_bottom = 937.0
+offset_left = -483.0
+offset_top = -270.0
+offset_right = 1444.0
+offset_bottom = 814.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_j40ms")
 

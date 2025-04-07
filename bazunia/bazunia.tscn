@@ -13,7 +13,7 @@
 size = Vector2(102, 100)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cf065"]
-font_size = 50
+font_size = 75
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
@@ -58,8 +58,8 @@ visibility_layer = 1024
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1927.0
+offset_bottom = 1084.0
 theme = ExtResource("3_t104p")
 
 [node name="Upgrades" type="Panel" parent="baza_gui/Control"]
@@ -69,15 +69,16 @@ texture_filter = 1
 layout_mode = 0
 offset_left = 9.0
 offset_top = 22.0
-offset_right = 201.0
-offset_bottom = 42.0
+offset_right = 9.0
+offset_bottom = 22.0
 
 [node name="moneysDisplayer" type="Label" parent="baza_gui/Control/Upgrades"]
 layout_mode = 0
-offset_left = 918.0
-offset_top = 534.0
-offset_right = 1032.0
-offset_bottom = 603.0
+offset_left = 1349.0
+offset_top = 12.0
+offset_right = 1463.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 18
 text = "500$"
 label_settings = SubResource("LabelSettings_cf065")
 
@@ -293,10 +294,10 @@ show_percentage = false
 [node name="Items" type="Panel" parent="baza_gui/Control"]
 z_index = 2000
 layout_mode = 0
-offset_left = 239.0
-offset_top = 131.0
-offset_right = 515.0
-offset_bottom = 480.0
+offset_left = 32.0
+offset_top = 476.0
+offset_right = 308.0
+offset_bottom = 825.0
 
 [node name="ItemList" type="ItemList" parent="baza_gui/Control/Items"]
 layout_mode = 1
@@ -325,36 +326,37 @@ offset_bottom = 344.0
 light_mask = 1024
 z_index = 1000
 position = Vector2(-1167, -5)
+scale = Vector2(1.00142, 1)
 
 [node name="Base1" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(1750.4, 532.562)
-scale = Vector2(7.20052, 7.20052)
+position = Vector2(2130.96, 875.062)
+scale = Vector2(11.9575, 11.9575)
 texture = ExtResource("4_cf065")
 
 [node name="Rocks" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
 z_index = 1
-position = Vector2(1749.5, 328.5)
-scale = Vector2(1.65571, 1.32449)
+position = Vector2(2137.02, 545.5)
+scale = Vector2(2.76292, 2.2102)
 texture = ExtResource("5_n4xso")
 
 [node name="SubmarinerReference1" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
 z_index = 7
-position = Vector2(1631, -11)
-scale = Vector2(4.51465, 4.51465)
+position = Vector2(1961.21, -51)
+scale = Vector2(7.81201, 7.81201)
 texture = ExtResource("6_ew4jx")
 
 [node name="CaveBack" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
 z_index = -1
-position = Vector2(1522.07, 349.188)
-scale = Vector2(1.00265, 1.10128)
+position = Vector2(2107, 365)
+scale = Vector2(2.74549, 3.01556)
 texture = ExtResource("7_6qyca")
 
 [node name="Base2" type="Sprite2D" parent="baza_gui/Control/CanvasGroup"]
 z_index = -2
-position = Vector2(1963, 638)
-scale = Vector2(4.22396, 4.22396)
+position = Vector2(2348.49, 984.937)
+scale = Vector2(9.04254, 9.04254)
 texture = ExtResource("4_cf065")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_entered"]
