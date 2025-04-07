@@ -17,3 +17,5 @@ mono_crash.*.json
 
 # Fuck em imports LOL
 assets/**/*.import
+
+build/

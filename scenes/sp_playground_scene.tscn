@@ -2224,9 +2224,10 @@ position = Vector2(2318, 6999)
 [node name="amethyst10" parent="." instance=ExtResource("11_3memj")]
 position = Vector2(2424, 6170)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_xd3ss")
 autoplay = true
+parameters/looping = true
 
 [node name="barell" parent="." instance=ExtResource("28_35x1e")]
 position = Vector2(-2129, 5)

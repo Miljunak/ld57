@@ -10,7 +10,7 @@ var my_ui = $baza_gui  # Or get_node("MyUI") if different path
 @onready 
 var keyHint = $keyHint  # Or get_node("MyUI") if different path
 
-var money = 5500;
+var money = 0;
 
 func set_moneys(val: int) -> void:
 	if val != money:
@@ -111,7 +111,7 @@ func _on_engine_upgrade() -> void:
 	if(currentEngine>=len(engine_upgrades)):
 		return
 	var upgrade_cost = engine_upgrades[currentEngine]["cost"]
-	if money > upgrade_cost:
+	if money >= upgrade_cost:
 		playerRef.engineUpgradeMaxSpeed += engine_upgrades[currentEngine]["maxSpeedBonus"]
 		currentEngine+=1
 		set_moneys(money-upgrade_cost)
@@ -129,7 +129,7 @@ func _on_throtel_speed() -> void:
 	if(currentThrotel>=len(throtel_upgrades)):
 		return
 	var upgrade_cost = throtel_upgrades[currentThrotel]["cost"]
-	if money > upgrade_cost:
+	if money >= upgrade_cost:
 		playerRef.throtelChangeSpeedBonus += throtel_upgrades[currentThrotel]["throtel_change_bonus"]
 		currentThrotel+=1
 		set_moneys(money-upgrade_cost)
@@ -163,7 +163,7 @@ func _on_oxygen_upgraded() -> void:
 	if(current_oxygen>=len(oxygen_upgrades)):
 		return
 	var upgrade_cost = oxygen_upgrades[current_oxygen]["cost"]
-	if money > upgrade_cost:
+	if money >= upgrade_cost:
 		playerRef.upgrade_oxygen(oxygen_upgrades[current_oxygen]["bonus_max_oxygen"])
 		current_oxygen+=1
 		set_moneys(money-upgrade_cost)
@@ -181,7 +181,7 @@ func _on_ballast_pump_upgraded() -> void:
 	if(current_ballast>=len(ballast_upgrade)):
 		return
 	var upgrade_cost = ballast_upgrade[current_ballast]["cost"]
-	if money > upgrade_cost:
+	if money >= upgrade_cost:
 		playerRef.BUOYANCY_CHANGE_SPEED += ballast_upgrade[current_ballast]["ballast_upgrade_bonus"]
 		current_ballast+=1
 		set_moneys(money-upgrade_cost)
