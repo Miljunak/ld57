@@ -25,6 +25,13 @@ func _ready():
 	$baza_gui/Control/Upgrades/throtle_speed/upgradeProgress.max_value = len(throtel_upgrades)
 	$baza_gui/Control/Upgrades/oxygenTank/upgradeProgress.max_value = len(oxygen_upgrades)
 	$baza_gui/Control/Upgrades/ballast_speed/upgradeProgress.max_value = len(ballast_upgrade)
+	update_prices()
+
+func update_prices():
+	$baza_gui/Control/Upgrades/engine/price.text = "%d $"%[engine_upgrades[currentEngine].cost]
+	$baza_gui/Control/Upgrades/throtle_speed/price.text = "%d $"%[engine_upgrades[currentThrotel].cost]
+	$baza_gui/Control/Upgrades/oxygenTank/price.text = "%d $"%[engine_upgrades[current_oxygen].cost]
+	$baza_gui/Control/Upgrades/ballast_speed/price.text = "%d $"%[engine_upgrades[current_ballast].cost]
 
 func load_inv():
 	var itList : ItemList= $baza_gui/Control/Items/ItemList
@@ -95,7 +102,7 @@ func _on_engine_upgrade() -> void:
 		currentEngine+=1
 		set_moneys(money-upgrade_cost)
 		$baza_gui/Control/Upgrades/engine/upgradeProgress.value+=1
-
+		update_prices()
 #Upgrade zmieniajacy jak szybko mozna ta dzwignie przyspieszenia przesunac
 var throtel_upgrades = [{"throtel_change_bonus":.02,"cost":100},
 					   {"throtel_change_bonus":.025,"cost":200},
@@ -113,6 +120,7 @@ func _on_throtel_speed() -> void:
 		currentThrotel+=1
 		set_moneys(money-upgrade_cost)
 		$baza_gui/Control/Upgrades/throtle_speed/upgradeProgress.value+=1
+		update_prices()
 
 var itemsValue = {"shoe":10,"aquamarine":50,"amethyst":100,"gold":200,"ruby":500}
 
@@ -146,6 +154,7 @@ func _on_oxygen_upgraded() -> void:
 		current_oxygen+=1
 		set_moneys(money-upgrade_cost)
 		$baza_gui/Control/Upgrades/oxygenTank/upgradeProgress.value+=1
+		update_prices()
 
 var ballast_upgrade = [{"ballast_upgrade_bonus":.2,"cost":100},
 					   {"ballast_upgrade_bonus":.1,"cost":200},
@@ -162,3 +171,4 @@ func _on_ballast_pump_upgraded() -> void:
 		current_ballast+=1
 		set_moneys(money-upgrade_cost)
 		$baza_gui/Control/Upgrades/ballast_speed/upgradeProgress.value+=1
+		update_prices()
