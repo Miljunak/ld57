@@ -218,7 +218,9 @@ func _on_no_oxygen() -> void:
 func on_base_entered():
 	$OxygenModule.oxygen = $OxygenModule.MAX_OXYGEN
 	$OxygenModule.dont_breathe = true
-
+	health = 100
+	broken_screen_overlay.visible = false
+	damaged_screen_overlay.visible = false
 func on_base_exited():
 	$OxygenModule.oxygen = $OxygenModule.MAX_OXYGEN
 	$OxygenModule.dont_breathe = false
