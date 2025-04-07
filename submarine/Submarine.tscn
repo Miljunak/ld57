@@ -231,7 +231,7 @@ texture_filter = 1
 position = Vector2(-3, 0)
 sprite_frames = ExtResource("2_s87fy")
 animation = &"running"
-frame_progress = 0.865615
+frame_progress = 0.7785
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 0)
