@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name base_monster
 
-var swimming_speed = 140
+var swimming_speed = 70
 var random_factor = 1
 var swim_timer = 0.0
 var swim_interval = .1
