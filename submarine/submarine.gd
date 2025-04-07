@@ -41,6 +41,7 @@ var is_absolutely_immune = false
 
 var low_health_played = false
 var baza : Bazunia
+var treasure: Treasure
 var particlerStartPos = null
 
 func _ready() -> void:
@@ -50,9 +51,14 @@ func _ready() -> void:
 	explosion.visible = false
 	low_health_sfx.stop()
 	baza = get_node("../bazunia")
-	baza.connect("base_entered",on_base_entered)
-	baza.connect("base_exited",on_base_exited)
+	baza.connect("base_entered", on_base_entered)
+	baza.connect("base_exited", on_base_exited)
 	particlerStartPos = $particler.position
+	
+	treasure = get_node("../Treasure")
+	if (treasure):
+		treasure.connect("treasure_collected", on_game_end)
+
 func _physics_process(delta: float) -> void:
 	update_immunity(delta)
 	update_flicker(delta)
@@ -194,6 +200,7 @@ func _on_no_oxygen() -> void:
 func on_base_entered():
 	$OxygenModule.oxygen = $OxygenModule.MAX_OXYGEN
 	$OxygenModule.dont_breathe = true
+
 func on_base_exited():
 	$OxygenModule.oxygen = $OxygenModule.MAX_OXYGEN
 	$OxygenModule.dont_breathe = false
@@ -201,3 +208,6 @@ func on_base_exited():
 func upgrade_oxygen(value):
 	$OxygenModule.MAX_OXYGEN += value
 	$OxygenModule.oxygen = $OxygenModule.MAX_OXYGEN
+
+func on_game_end():
+	pass # maybe do somethin here idk
