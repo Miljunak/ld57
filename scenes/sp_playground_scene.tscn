@@ -529,7 +529,6 @@ metadata/_edit_vertical_guides_ = [5277.0, -2924.0]
 
 [node name="Submariner" parent="." instance=ExtResource("2_rnswd")]
 position = Vector2(-1, 2)
-WATER_RESISTANCE = 2
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 position = Vector2(215, 208)

@@ -1,13 +1,13 @@
 extends CharacterBody2D
 class_name Submariner
 
-@export var SPEED = 70.0
-@export var WATER_RESISTANCE = 3
+@export var SPEED = 40.0
+@export var WATER_RESISTANCE = 2.7
 @export var BUOYANCY_CHANGE_SPEED = .5
 @export var MIN_BUOYANCY = -80
 @export var MAX_BUOYANCY = 50
-@export var MAX_DESCENT = 200
-@export var MIN_DESCENT = -250
+@export var MAX_DESCENT = 100
+@export var MIN_DESCENT = -180
 @export var MAX_PROPULSION = 9
 @export var PROPULSION_CHANGE_SPEED = 0.1
 @export var INPUT_THRESHOLD = 1
@@ -30,7 +30,7 @@ const SHAKE_DURATION = 0.2
 
 @onready var waterLevel = $Camera2D/Control/tank/waterLevel
 @onready var lever = $Camera2D/Control/lever
-@onready var sprite = $aSprite
+@onready var sprite : AnimatedSprite2D = $aSprite
 @onready var camera = $Camera2D
 @onready var broken_screen_overlay = $BrokenScreenOverlay
 @onready var damaged_screen_overlay = $DamagedScreenOverlay
@@ -82,15 +82,18 @@ func _physics_process(delta: float) -> void:
 		$Camera2D/Control/direction.play("neutral")
 
 	if clampedProp != 0:
-		$aSprite.flip_h = clampedProp < 0
-		$aSprite.play("running")
+		sprite.flip_h = clampedProp < 0
+		sprite.play("running")
+		var speed_scale = abs((abs(clampedProp-MAX_PROPULSION))/MAX_PROPULSION+1)
+		sprite.speed_scale = (speed_scale)
+		print("playbak speed ",speed_scale)
 		$particler.emitting = true
 		if velocity.x > 0:
 			$particler.position = particlerStartPos
 		else:
 			$particler.position = -1 * particlerStartPos
 	else:
-		$aSprite.play("idle")
+		sprite.play("idle")
 		$particler.emitting = false
 	print("velo ",velocity.y, " | balast: ", BOUYANCY)
 	move_and_slide()
