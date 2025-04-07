@@ -1,9 +1,195 @@
-[gd_scene format=3 uid="uid://0firl0efs0i5"]
+[gd_scene load_steps=5 format=3 uid="uid://0firl0efs0i5"]
+
+[ext_resource type="Script" uid="uid://73e26qblbu0a" path="res://scenes/tutorial_controls.gd" id="1_igcka"]
+[ext_resource type="Texture2D" uid="uid://j6p6ekobteoi" path="res://assets/caveEntrance.png" id="2_l80kg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0uwtd"]
+font_size = 41
+
+[sub_resource type="LabelSettings" id="LabelSettings_l80kg"]
+font_size = 31
+font_color = Color(0.414448, 0.919354, 0.536543, 1)
 
 [node name="TutorialControls" type="Control"]
+z_index = 1090
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+script = ExtResource("1_igcka")
+
+[node name="Ballast" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1348.0
+offset_top = 448.0
+offset_right = 1872.0
+offset_bottom = 610.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Ballast"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -68.0
+offset_right = 255.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "use [img]res://assets/keys_au.png[/img] to go up
+use [img]res://assets/keys_ad.png[/img] to go down
+Descent speed depends on level of water in your ballast tank"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Ballast"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.199
+anchor_bottom = 0.142
+offset_left = 252.0
+offset_top = 295.0
+offset_right = 437.724
+offset_bottom = 358.996
+text = "BALLAST TANK"
+label_settings = SubResource("LabelSettings_0uwtd")
+
+[node name="Steering" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 737.0
+offset_top = 896.0
+offset_right = 1261.0
+offset_bottom = 947.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Steering"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -18.5
+offset_right = 208.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "use [img]res://assets/keys_ar.png[/img] and [img]res://assets/keys_al.png[/img] to turn on propeller
+"
+
+[node name="help" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 710.0
+offset_top = 270.0
+offset_right = 1234.0
+offset_bottom = 321.0
+
+[node name="Label" type="Label" parent="help"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 3.0
+offset_right = 481.0
+offset_bottom = 51.0
+text = "Press F1 to hide/show help..."
+label_settings = SubResource("LabelSettings_l80kg")
+
+[node name="oxy" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 713.0
+offset_top = 105.0
+offset_right = 1237.0
+offset_bottom = 156.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="oxy"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -18.5
+offset_right = 208.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "This is your oxygen meter."
+horizontal_alignment = 1
+
+[node name="torpedosek\\" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 132.0
+offset_top = 575.0
+offset_right = 656.0
+offset_bottom = 626.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="torpedosek\\"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -18.5
+offset_right = 208.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "use [img]res://assets/keys_e.png[/img] to launch a torpedo"
+horizontal_alignment = 1
+
+[node name="cave" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 127.0
+offset_top = 644.0
+offset_right = 651.0
+offset_bottom = 953.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="cave"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = -136.5
+offset_right = 238.0
+offset_bottom = 139.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "This is a cave, your new home: 
+
+
+
+
+
+Press space to enter it to buy upgrades and restore your oxygen"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="cave"]
+texture_filter = 1
+position = Vector2(259, 141)
+scale = Vector2(2.3125, 2.3125)
+texture = ExtResource("2_l80kg")
