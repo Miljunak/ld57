@@ -23,6 +23,7 @@ window/size/viewport_height=1080
 [global_group]
 
 mosnters=""
+playa="player"
 
 [input]
 

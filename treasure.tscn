@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://i650fpjm880a"]
+
+[ext_resource type="Texture2D" uid="uid://dhi7ao4sjrk6v" path="res://assets/treasure.png" id="1_dubxd"]
+[ext_resource type="Script" uid="uid://dw6djlp28jr4m" path="res://treasure.gd" id="1_h85lg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h85lg"]
+
+[node name="Treasure" type="Node2D"]
+script = ExtResource("1_h85lg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_h85lg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(0.0136589, 0.0149016)
+texture = ExtResource("1_dubxd")
+
+[node name="WinModal" type="CanvasLayer" parent="."]
