@@ -122,7 +122,7 @@ func _on_throtel_speed() -> void:
 		$baza_gui/Control/Upgrades/throtle_speed/upgradeProgress.value+=1
 		update_prices()
 
-var itemsValue = {"shoe":10,"aquamarine":50,"amethyst":100,"gold":200,"ruby":500}
+var itemsValue = {"shoe":10,"aquamarine":50,"amethyst":100,"gold":200,"ruby":500,"default":0,"barell":100}
 
 
 
