@@ -38,7 +38,9 @@ var boosters = 10
 @onready var broken_screen_overlay = $BrokenScreenOverlay
 @onready var damaged_screen_overlay = $DamagedScreenOverlay
 @onready var low_health_sfx: AudioStreamPlayer2D = $LowHealthSFX
+@onready var explosion_sfx: AudioStreamPlayer2D = $ExplosionSFX
 @onready var damage_sfx: AudioStreamPlayer2D = $DamageSFX
+@onready var movment_sfx: AudioStreamPlayer2D = $MovmentSFX
 @onready var explosion = $Explosion
 
 var low_health_played = false
@@ -52,10 +54,12 @@ func _ready() -> void:
 	damaged_screen_overlay.visible = false
 	explosion.visible = false
 	low_health_sfx.stop()
+	explosion_sfx.stop()
 	baza = get_node("../bazunia")
 	baza.connect("base_entered", on_base_entered)
 	baza.connect("base_exited", on_base_exited)
 	particlerStartPos = $particler.position
+	movment_sfx.stop()
 	
 	treasure = get_node("../Treasure")
 	if (treasure):
@@ -95,6 +99,8 @@ func _physics_process(delta: float) -> void:
 		$Camera2D/Control/direction.play("neutral")
 
 	if clampedProp != 0:
+		if not movment_sfx.playing:
+			movment_sfx.play()
 		sprite.flip_h = clampedProp < 0
 		sprite.play("running")
 		var speed_scale = abs((abs(clampedProp-MAX_PROPULSION))/MAX_PROPULSION+1)
@@ -105,6 +111,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			$particler.position = -1 * particlerStartPos
 	else:
+		if movment_sfx.playing:
+			movment_sfx.stop()
 		sprite.play("idle")
 		$particler.emitting = false
 	#print("velo ",velocity.y, " | balast: ", BOUYANCY)
@@ -200,6 +208,7 @@ func collect_scrap(scrapName):
 	$CollectorModule.collect(scrapName)
 	
 func die():
+	explosion_sfx.play()
 	print("U DEAD")
 	$Camera2D/Control/DEATHLABEL.visible = true
 	await get_tree().create_timer(2.0).timeout

@@ -35,6 +35,9 @@ func _process(delta):
 		keyHint.visible = false
 		itemJustPickedUp = true
 		flash_text()
+		var audio = $audio
+		if audio:
+			audio.play()
 	if itemJustPickedUp:
 		labelTImer += delta
 		if(labelTimeDisplaeyd<labelTImer):

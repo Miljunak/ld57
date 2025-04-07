@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 		
 	var launchInput = Input.is_action_just_pressed("launch")
 	if launchInput:
+		$audio.play()
 		var torpeda = torpedo_scene.instantiate()
 		torpeda.setup(global_position,dir,TORPEDO_SPEED,TORPEDO_LIFETIME )
 		get_tree().get_current_scene().add_child(torpeda)

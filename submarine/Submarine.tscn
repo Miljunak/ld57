@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dtn0he7lbljg0"]
+[gd_scene load_steps=45 format=3 uid="uid://dtn0he7lbljg0"]
 
 [ext_resource type="Script" uid="uid://dm0oxik1xe4gm" path="res://submarine/submarine.gd" id="1_w62jf"]
 [ext_resource type="Script" uid="uid://dctjug7chn427" path="res://submarine/oxygenModule.gd" id="2_1c0mj"]
@@ -11,14 +11,17 @@
 [ext_resource type="Script" uid="uid://b1lu8qriajned" path="res://submarine/torpedo_module.gd" id="4_d7cbl"]
 [ext_resource type="SpriteFrames" uid="uid://bk40prdsdscxe" path="res://scenes/directionArrows.tres" id="5_06tcg"]
 [ext_resource type="Texture2D" uid="uid://b24a2nre2wnnh" path="res://assets/ui/ballastTank.png" id="5_4167o"]
+[ext_resource type="AudioStream" uid="uid://d3tpa0uvksgb1" path="res://assets/sounds/torpedo_launch.mp3" id="5_velbi"]
 [ext_resource type="SpriteFrames" uid="uid://bo2iyso0rvuup" path="res://scenes/waterFrames.tres" id="6_fcveb"]
 [ext_resource type="Texture2D" uid="uid://sh346ei3yayi" path="res://assets/lightmask.png" id="8_my3mo"]
-[ext_resource type="Texture2D" uid="uid://cbh68oyq0bicq" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
-[ext_resource type="Texture2D" uid="uid://bwewj70s7jq40" path="res://assets/broken-screen.png" id="11_namuc"]
-[ext_resource type="AudioStream" uid="uid://cl8ircppdy81y" path="res://assets/sounds/low_health_sfx.mp3" id="13_dcpsv"]
-[ext_resource type="AudioStream" uid="uid://bt32acqcox70n" path="res://assets/sounds/damage_sfx.mp3" id="13_f6nv7"]
-[ext_resource type="Texture2D" uid="uid://bgjiu83unmf0h" path="res://assets/explosion-boom-Sheet.png" id="15_1c0mj"]
+[ext_resource type="Texture2D" uid="uid://ds4cjsv3mn3f5" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
+[ext_resource type="Texture2D" uid="uid://cq5qv4tqimy0s" path="res://assets/broken-screen.png" id="11_namuc"]
+[ext_resource type="AudioStream" uid="uid://r3x00nyjntxi" path="res://assets/sounds/damage_sfx.mp3" id="13_f6nv7"]
+[ext_resource type="Texture2D" uid="uid://rc6jawrqanlu" path="res://assets/explosion-boom-Sheet.png" id="15_1c0mj"]
+[ext_resource type="AudioStream" uid="uid://cw0e0lep2c66a" path="res://assets/sounds/alert.mp3" id="17_gqg3u"]
+[ext_resource type="AudioStream" uid="uid://b04movtdeaw6e" path="res://assets/sounds/explosion.mp3" id="18_fny7f"]
 [ext_resource type="PackedScene" uid="uid://0firl0efs0i5" path="res://scenes/TutorialControls.tscn" id="19_scl0a"]
+[ext_resource type="AudioStream" uid="uid://dq34udfy6rvbx" path="res://assets/sounds/movement.mp3" id="21_fny7f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa563"]
 radius = 14.0
@@ -174,6 +177,10 @@ script = ExtResource("3_wkvwd")
 
 [node name="TorpedoModule" type="Node2D" parent="."]
 script = ExtResource("4_d7cbl")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="TorpedoModule"]
+stream = ExtResource("5_velbi")
+volume_db = -3.225
 
 [node name="Tempbackground" type="Sprite2D" parent="."]
 visible = false
@@ -343,7 +350,13 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_j40ms")
 
 [node name="LowHealthSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_dcpsv")
+stream = ExtResource("17_gqg3u")
+volume_db = 2.0
+
+[node name="ExplosionSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_fny7f")
+volume_db = 24.0
+pitch_scale = 0.7
 
 [node name="DamageSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_f6nv7")
@@ -354,6 +367,11 @@ pitch_scale = 0.25
 sprite_frames = SubResource("SpriteFrames_mfu75")
 animation = &"explode"
 frame_progress = 0.605858
+
+[node name="MovmentSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_fny7f")
+volume_db = -8.0
+parameters/looping = true
 
 [connection signal="no_oxygen" from="OxygenModule" to="." method="_on_no_oxygen"]
 [connection signal="area_entered" from="searchLight/Area2D" to="searchLight" method="_on_area_2d_area_entered"]

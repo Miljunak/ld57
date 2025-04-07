@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://de5d74ts4c7yh"]
+[gd_scene load_steps=6 format=3 uid="uid://de5d74ts4c7yh"]
 
 [ext_resource type="Script" uid="uid://do21qrae7lq66" path="res://scenes/scrap.gd" id="1_taqsx"]
 [ext_resource type="Texture2D" uid="uid://decy4auoxvgfm" path="res://assets/Gold.png" id="2_g8auo"]
 [ext_resource type="Texture2D" uid="uid://m5snyu36ktfb" path="res://assets/ui/space_ico.png" id="3_hfqct"]
+[ext_resource type="AudioStream" uid="uid://d4mg7klsiwv11" path="res://assets/sounds/chest.mp3" id="4_g8auo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7d5k"]
 
@@ -25,6 +26,10 @@ z_index = 10
 texture_filter = 1
 position = Vector2(1, -28)
 texture = ExtResource("3_hfqct")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_g8auo")
+volume_db = 3.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://btsl5qioqxavq"]
+[gd_scene load_steps=6 format=3 uid="uid://btsl5qioqxavq"]
 
 [ext_resource type="Script" uid="uid://do21qrae7lq66" path="res://scenes/scrap.gd" id="1_oig8v"]
 [ext_resource type="Texture2D" uid="uid://wv32bsf0irx" path="res://assets/barell.png" id="2_oig8v"]
 [ext_resource type="Texture2D" uid="uid://m5snyu36ktfb" path="res://assets/ui/space_ico.png" id="3_cubr8"]
+[ext_resource type="AudioStream" uid="uid://d4mg7klsiwv11" path="res://assets/sounds/chest.mp3" id="4_fiiks"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7d5k"]
 radius = 17.0294
@@ -24,6 +25,10 @@ visible = false
 texture_filter = 1
 position = Vector2(-19, -19)
 texture = ExtResource("3_cubr8")
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fiiks")
+volume_db = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

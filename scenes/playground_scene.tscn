@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://i8fdn5mjpqg4"]
+[gd_scene load_steps=11 format=3 uid="uid://i8fdn5mjpqg4"]
 
 [ext_resource type="Texture2D" uid="uid://dwi41pj75q7t" path="res://tempbackground.png" id="1_64foh"]
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="1_jpd4k"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://boomj3emhw4h1" path="res://components/ruby.tscn" id="7_jaapn"]
 [ext_resource type="PackedScene" uid="uid://doohxxs3b8uo4" path="res://components/amethyst.tscn" id="8_kw7rb"]
 [ext_resource type="PackedScene" uid="uid://bym3l2vubyi0t" path="res://scenes/treasure.tscn" id="9_i6abk"]
+[ext_resource type="PackedScene" uid="uid://cpnvwkafv7388" path="res://ai/octopus.tscn" id="10_kw7rb"]
 [ext_resource type="PackedScene" uid="uid://bxyokjo25f7nt" path="res://components/aquamarine.tscn" id="11_xfepj"]
 
 [node name="PlaygroundScene2" type="Node2D"]
@@ -41,5 +42,8 @@ position = Vector2(3, 4)
 
 [node name="Treasure" parent="." instance=ExtResource("9_i6abk")]
 position = Vector2(-848, 487)
+
+[node name="octopussy" parent="." instance=ExtResource("10_kw7rb")]
+position = Vector2(-1105, 407)
 
 [editable path="scrap"]
