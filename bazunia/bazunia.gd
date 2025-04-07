@@ -10,7 +10,7 @@ var my_ui = $baza_gui  # Or get_node("MyUI") if different path
 @onready 
 var keyHint = $keyHint  # Or get_node("MyUI") if different path
 
-var money = 500;
+var money = 5500;
 
 func set_moneys(val: int) -> void:
 	if val != money:
@@ -28,10 +28,22 @@ func _ready():
 	update_prices()
 
 func update_prices():
-	$baza_gui/Control/Upgrades/engine/price.text = "%d $"%[engine_upgrades[currentEngine].cost]
-	$baza_gui/Control/Upgrades/throtle_speed/price.text = "%d $"%[engine_upgrades[currentThrotel].cost]
-	$baza_gui/Control/Upgrades/oxygenTank/price.text = "%d $"%[engine_upgrades[current_oxygen].cost]
-	$baza_gui/Control/Upgrades/ballast_speed/price.text = "%d $"%[engine_upgrades[current_ballast].cost]
+	if(currentEngine>=len(engine_upgrades)):
+		$baza_gui/Control/Upgrades/engine/price.text = "max"
+	else:
+		$baza_gui/Control/Upgrades/engine/price.text = "%d $"%[engine_upgrades[currentEngine].cost]
+	if(currentThrotel>=len(throtel_upgrades)):
+		$baza_gui/Control/Upgrades/throtle_speed/price.text = "max"
+	else:
+		$baza_gui/Control/Upgrades/throtle_speed/price.text = "%d $"%[throtel_upgrades[currentThrotel].cost]
+	if(current_oxygen>=len(oxygen_upgrades)):
+		$baza_gui/Control/Upgrades/oxygenTank/price.text = "max"
+	else:
+		$baza_gui/Control/Upgrades/oxygenTank/price.text = "%d $"%[oxygen_upgrades[current_oxygen].cost]
+	if(current_ballast>=len(ballast_upgrade)):
+		$baza_gui/Control/Upgrades/ballast_speed/price.text = "max"
+	else:
+		$baza_gui/Control/Upgrades/ballast_speed/price.text = "%d $"%[ballast_upgrade[current_ballast].cost]
 
 func load_inv():
 	var itList : ItemList= $baza_gui/Control/Items/ItemList
@@ -88,10 +100,12 @@ func _process(_delta):
 		else:
 			exit_base()
 		
-var engine_upgrades = [{"maxSpeedBonus":1,"cost":100},
-					   {"maxSpeedBonus":1,"cost":200},
-					   {"maxSpeedBonus":1,"cost":300},
-					   {"maxSpeedBonus":1,"cost":400}]
+var engine_upgrades = [{"maxSpeedBonus":.1,"cost":100},
+					   {"maxSpeedBonus":.2,"cost":200},
+					   {"maxSpeedBonus":.3,"cost":300},
+					   {"maxSpeedBonus":.3,"cost":300},
+					   {"maxSpeedBonus":.3,"cost":400},
+					   {"maxSpeedBonus":.6,"cost":1500}]
 var currentEngine = 0
 func _on_engine_upgrade() -> void:
 	if(currentEngine>=len(engine_upgrades)):
@@ -160,12 +174,13 @@ var ballast_upgrade = [{"ballast_upgrade_bonus":.2,"cost":100},
 					   {"ballast_upgrade_bonus":.1,"cost":200},
 					   {"ballast_upgrade_bonus":.1,"cost":300},
 					   {"ballast_upgrade_bonus":.05,"cost":300},
-					   {"ballast_upgrade_bonus":.1,"cost":400}]
+					   {"ballast_upgrade_bonus":.1,"cost":400},
+						{"ballast_upgrade_bonus":.1,"cost":1500}]
 var current_ballast = 0
 func _on_ballast_pump_upgraded() -> void:
 	if(current_ballast>=len(ballast_upgrade)):
 		return
-	var upgrade_cost = throtel_upgrades[current_ballast]["cost"]
+	var upgrade_cost = ballast_upgrade[current_ballast]["cost"]
 	if money > upgrade_cost:
 		playerRef.BUOYANCY_CHANGE_SPEED += ballast_upgrade[current_ballast]["ballast_upgrade_bonus"]
 		current_ballast+=1

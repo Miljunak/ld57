@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dmc4stwqeh6fx"]
+[gd_scene load_steps=37 format=4 uid="uid://dmc4stwqeh6fx"]
 
 [ext_resource type="TileSet" uid="uid://cnmrpdnk7bh4s" path="res://scenes/Water.tres" id="2_htgdv"]
 [ext_resource type="Texture2D" uid="uid://cutyni1o4cjbe" path="res://assets/tilesAlternative.png" id="2_qlg0r"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://bbfjhwlo1k8fr" path="res://components/scrap_template.tscn" id="23_h6lih"]
 [ext_resource type="PackedScene" uid="uid://boomj3emhw4h1" path="res://components/ruby.tscn" id="24_xyev8"]
 [ext_resource type="PackedScene" uid="uid://de5d74ts4c7yh" path="res://components/gold.tscn" id="26_xyev8"]
+[ext_resource type="AudioStream" uid="uid://dotktmcyv3alj" path="res://assets/sounds/withthewaves_branchBmix3.mp3" id="27_xd3ss"]
+[ext_resource type="PackedScene" uid="uid://btsl5qioqxavq" path="res://components/barell.tscn" id="28_35x1e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hoaoj"]
 texture = ExtResource("2_qlg0r")
@@ -2221,3 +2223,112 @@ position = Vector2(2318, 6999)
 
 [node name="amethyst10" parent="." instance=ExtResource("11_3memj")]
 position = Vector2(2424, 6170)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_xd3ss")
+autoplay = true
+
+[node name="barell" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-2129, 5)
+
+[node name="barell2" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(4858, 1908)
+
+[node name="barell3" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(3146, 877)
+
+[node name="barell4" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-2152, 3465)
+
+[node name="barell5" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-954, 5793)
+
+[node name="barell6" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(634, 4185)
+
+[node name="barell7" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(3257, 5759)
+
+[node name="barell8" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(3116, 3129)
+
+[node name="barell9" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(1266, 3728)
+
+[node name="barell10" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(3533, 4858)
+
+[node name="barell11" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(4677, 6769)
+
+[node name="barell12" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-994, 11622)
+
+[node name="barell13" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-1417, 10902)
+
+[node name="barell14" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-491, 10863)
+
+[node name="barell15" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(947, 10715)
+
+[node name="barell16" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(2513, 11021)
+
+[node name="barell17" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(3163, 11671)
+
+[node name="barell18" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(3261, 10646)
+
+[node name="barell19" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-748, 9031)
+
+[node name="barell20" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-1023, 7465)
+
+[node name="barell21" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(1698, 9610)
+
+[node name="barell22" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(1042, 13296)
+
+[node name="barell23" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(1078, 12426)
+
+[node name="barell24" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-650, 12617)
+
+[node name="barell25" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-1854, 12927)
+
+[node name="barell26" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(4368, 11747)
+
+[node name="barell27" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(1805, 11151)
+
+[node name="barell28" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(1972, 12951)
+
+[node name="barell29" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(4463, 12891)
+
+[node name="barell30" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-2593, 12164)
+
+[node name="barell31" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(-1150, 10257)
+
+[node name="barell32" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(3533, 12605)
+
+[node name="barell33" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(1924, 11938)
+
+[node name="barell34" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(2497, 10567)
+
+[node name="barell35" parent="." instance=ExtResource("28_35x1e")]
+position = Vector2(3521, 13439)
