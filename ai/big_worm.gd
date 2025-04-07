@@ -1,6 +1,6 @@
 extends base_monster
 
-var max_speed = 120
+var max_speed = 100
 var rotation_drag = 0.5
 var player_in_hitbox = false
 var damage_tick_timer = 0.0
@@ -31,11 +31,15 @@ func _physics_process(delta: float) -> void:
 
 func update_swim_direction(delta: float):
 	if player != null:
-		swim_direction = (player.position - position).normalized()
+		var desired_direction = (player.position - position).normalized()
+		swim_direction = swim_direction.lerp(desired_direction, delta * rotation_drag)
+		
 		var target_angle = swim_direction.angle() + PI
 		var smooth_angle = lerp_angle(sprite.rotation, target_angle, delta * rotation_drag)
+		
 		sprite.rotation = smooth_angle
 		$BodyShape.rotation = smooth_angle
+		
 		var offset = Vector2.RIGHT.rotated(smooth_angle) * -80
 		$DamageHitbox/DamageShape.position = offset
 

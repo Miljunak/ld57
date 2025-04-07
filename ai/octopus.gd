@@ -1,6 +1,6 @@
 extends base_monster
 
-var max_speed = 400
+var max_speed = 350
 var acceleration_duration = 0.8
 var deceleration_duration = 0.5
 var swim_cycle_duration = acceleration_duration + deceleration_duration
@@ -10,7 +10,6 @@ func _ready():
 	sprite.play("swim")
 	bravery = 3
 	max_chase_distance = 1000.0
-
 	DAMAGE_DEALT = 25
 	DAMAGE_RANGE = 30
 	super._ready()
