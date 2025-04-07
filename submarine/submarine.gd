@@ -29,7 +29,7 @@ const SHAKE_INTENSITY = 10
 const SHAKE_DURATION = 0.2
 var is_absolutely_immune = false
 
-var boosters = 0
+var boosters = 10
 
 @onready var waterLevel = $Camera2D/Control/tank/waterLevel
 @onready var lever = $Camera2D/Control/lever
@@ -60,6 +60,10 @@ func _ready() -> void:
 	treasure = get_node("../Treasure")
 	if (treasure):
 		treasure.connect("treasure_collected", on_game_end)
+
+var is_booster_on = false
+var booster_timer = 0.0
+var booster_time = 0.0
 
 func _physics_process(delta: float) -> void:
 	update_immunity(delta)
@@ -104,6 +108,18 @@ func _physics_process(delta: float) -> void:
 		sprite.play("idle")
 		$particler.emitting = false
 	#print("velo ",velocity.y, " | balast: ", BOUYANCY)
+	var booster := Input.is_action_just_pressed("booster")
+	if booster:
+		is_booster_on = true
+		booster_timer = 0
+	booster_timer += delta
+	if is_booster_on :
+		print("booster on")
+		velocity.y = clamp(velocity.y*1.2,-500,500)
+		if  booster_timer > booster_time:
+			is_booster_on = false
+		
+		
 	move_and_slide()
 
 func set_boyancy_level(boya):

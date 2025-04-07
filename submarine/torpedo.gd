@@ -15,6 +15,7 @@ func setup(pos,dir, stren, lifetime):
 	strength = stren
 	lifeTime = lifetime
 	tempPos = pos
+	$Sprite2D.flip_h = dir.x < 0
 
 var launched = false
 func _physics_process(_delta: float) -> void:

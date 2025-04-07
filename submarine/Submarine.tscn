@@ -258,6 +258,14 @@ offset_top = -315.0
 offset_right = 556.0
 offset_bottom = 314.0
 
+[node name="ItemFoundLabel" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 228.0
+offset_right = 678.0
+offset_bottom = 274.0
+horizontal_alignment = 1
+
 [node name="DEATHLABEL" type="Label" parent="Camera2D/Control"]
 visible = false
 z_index = 1000

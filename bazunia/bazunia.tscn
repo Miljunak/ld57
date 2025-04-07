@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://prwkmgih00pp"]
+[gd_scene load_steps=15 format=3 uid="uid://prwkmgih00pp"]
 
 [ext_resource type="Script" uid="uid://cuighw3s7lp2r" path="res://bazunia/bazunia.gd" id="1_t0pju"]
 [ext_resource type="Texture2D" uid="uid://m5snyu36ktfb" path="res://assets/ui/space_ico.png" id="2_infe6"]
@@ -29,6 +29,11 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_6qyca"]
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aptn1"]
+font_size = 46
+outline_size = 10
+outline_color = Color(0.000693898, 0.000693898, 0.000693898, 1)
 
 [node name="bazunia" type="Node2D"]
 z_index = 2
@@ -321,6 +326,15 @@ offset_left = 6.0
 offset_top = 309.0
 offset_right = 146.0
 offset_bottom = 344.0
+
+[node name="Label" type="Label" parent="baza_gui/Control/Items"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -59.0
+offset_right = 269.0
+offset_bottom = 18.0
+text = "INVENTORY"
+label_settings = SubResource("LabelSettings_aptn1")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="baza_gui/Control"]
 light_mask = 1024
