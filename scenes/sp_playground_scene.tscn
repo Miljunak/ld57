@@ -1,10 +1,10 @@
 [gd_scene load_steps=30 format=4 uid="uid://dmc4stwqeh6fx"]
 
 [ext_resource type="TileSet" uid="uid://cnmrpdnk7bh4s" path="res://scenes/Water.tres" id="2_htgdv"]
-[ext_resource type="Texture2D" uid="uid://cagvpglkcddb1" path="res://assets/tilesAlternative.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://b2hvhcdotou4u" path="res://assets/tilesAlternative.png" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dtn0he7lbljg0" path="res://submarine/Submarine.tscn" id="2_rnswd"]
 [ext_resource type="PackedScene" uid="uid://chdeuiv1p4ha2" path="res://Background/Fish.tscn" id="3_m15ng"]
-[ext_resource type="Texture2D" uid="uid://becrl3bes4d80" path="res://assets/tiles.png" id="3_rnswd"]
+[ext_resource type="Texture2D" uid="uid://d2djbqjj5nml8" path="res://assets/tiles.png" id="3_rnswd"]
 [ext_resource type="PackedScene" uid="uid://cwphyxi801lbw" path="res://Background/Bubble.tscn" id="4_m15ng"]
 [ext_resource type="PackedScene" uid="uid://dnligyvuji5uq" path="res://Background/Grass.tscn" id="5_luk67"]
 [ext_resource type="PackedScene" uid="uid://jjein1jjs4xa" path="res://ai/shark.tscn" id="6_so356"]
@@ -15,10 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://cei2m0u1tngwa" path="res://assets/Red colar.png" id="12_qhbto"]
 [ext_resource type="Texture2D" uid="uid://dxrspon4b6j7b" path="res://assets/Rock.png" id="13_3memj"]
 [ext_resource type="PackedScene" uid="uid://prwkmgih00pp" path="res://bazunia/bazunia.tscn" id="15_gphah"]
-[ext_resource type="Texture2D" uid="uid://cd0tttgg2id8g" path="res://assets/shipp.png" id="15_hoaoj"]
+[ext_resource type="Texture2D" uid="uid://dvlbfk7qfyx01" path="res://assets/shipp.png" id="15_hoaoj"]
 [ext_resource type="PackedScene" uid="uid://pgeurra5yrh" path="res://Background/Boulder2.tscn" id="15_vd4tq"]
 [ext_resource type="PackedScene" uid="uid://cpnvwkafv7388" path="res://ai/octopus.tscn" id="16_gphah"]
-[ext_resource type="Texture2D" uid="uid://d0xnhqit2gjw7" path="res://assets/slonce.png" id="17_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://cddbs0pcj47nq" path="res://assets/slonce.png" id="17_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://b7u6clpxv7lbj" path="res://ai/big_worm.tscn" id="20_bmnky"]
 [ext_resource type="PackedScene" uid="uid://cx6ewf25an223" path="res://ai/angler.tscn" id="21_x8fwf"]
 
@@ -1357,7 +1357,7 @@ texture = ExtResource("9_qhbto")
 
 [node name="RedColar7" type="Sprite2D" parent="Node2D"]
 texture_filter = 1
-position = Vector2(577, 6179)
+position = Vector2(587, 6178)
 texture = ExtResource("12_qhbto")
 
 [node name="PurpleCoral7" type="Sprite2D" parent="Node2D"]
@@ -1522,7 +1522,7 @@ position = Vector2(3382, -127)
 position = Vector2(3443, 1491)
 
 [node name="Boulder8" parent="." instance=ExtResource("7_4ixo8")]
-position = Vector2(-2517, 935)
+position = Vector2(-2675, 943)
 
 [node name="Boulder9" parent="." instance=ExtResource("7_4ixo8")]
 position = Vector2(-1333, 657)
@@ -1534,7 +1534,7 @@ position = Vector2(1553, 1885)
 position = Vector2(441, 1085)
 
 [node name="Boulder12" parent="." instance=ExtResource("15_vd4tq")]
-position = Vector2(3954, 662)
+position = Vector2(5369, 1063)
 
 [node name="Boulder13" parent="." instance=ExtResource("15_vd4tq")]
 position = Vector2(1197, 1279)
@@ -1579,7 +1579,7 @@ position = Vector2(1837, 3449)
 position = Vector2(1599, 5497)
 
 [node name="Boulder27" parent="." instance=ExtResource("7_4ixo8")]
-position = Vector2(-2551, 4955)
+position = Vector2(-2682, 4961)
 
 [node name="Boulder28" parent="." instance=ExtResource("7_4ixo8")]
 position = Vector2(3235, 3730)
@@ -1720,7 +1720,7 @@ position = Vector2(3983, 7932)
 position = Vector2(2746, 6809)
 
 [node name="Boulder74" parent="." instance=ExtResource("15_vd4tq")]
-position = Vector2(5139, 8600)
+position = Vector2(5379, 8616)
 
 [node name="Boulder75" parent="." instance=ExtResource("15_vd4tq")]
 position = Vector2(5188, 6801)
@@ -1738,7 +1738,7 @@ position = Vector2(4773, 9512)
 position = Vector2(580, 9715)
 
 [node name="Boulder80" parent="." instance=ExtResource("7_4ixo8")]
-position = Vector2(-2847, 9097)
+position = Vector2(-2661, 9070)
 
 [node name="Boulder81" parent="." instance=ExtResource("7_4ixo8")]
 position = Vector2(-482, 2393)
@@ -1759,7 +1759,7 @@ position = Vector2(-889, 10867)
 position = Vector2(-1036, 12951)
 
 [node name="Boulder87" parent="." instance=ExtResource("7_4ixo8")]
-position = Vector2(-2835, 12657)
+position = Vector2(-2679, 12678)
 
 [node name="Boulder88" parent="." instance=ExtResource("7_4ixo8")]
 position = Vector2(-2168, 13341)
@@ -1786,7 +1786,7 @@ position = Vector2(1862, 10468)
 position = Vector2(5167, 10289)
 
 [node name="Boulder96" parent="." instance=ExtResource("7_4ixo8")]
-position = Vector2(4524, 11640)
+position = Vector2(5366, 11656)
 
 [node name="Boulder97" parent="." instance=ExtResource("7_4ixo8")]
 position = Vector2(3864, 12967)
@@ -1879,7 +1879,7 @@ position = Vector2(4410, 13488)
 position = Vector2(3750, 11217)
 
 [node name="Boulder127" parent="." instance=ExtResource("15_vd4tq")]
-position = Vector2(4923, 10972)
+position = Vector2(4625, 11266)
 
 [node name="Boulder128" parent="." instance=ExtResource("15_vd4tq")]
 position = Vector2(3327, 10289)
@@ -1909,7 +1909,7 @@ position = Vector2(501, 3451)
 position = Vector2(4906, 3884)
 
 [node name="Boulder137" parent="." instance=ExtResource("15_vd4tq")]
-position = Vector2(4394, 5168)
+position = Vector2(5386, 5212)
 
 [node name="Boulder138" parent="." instance=ExtResource("15_vd4tq")]
 position = Vector2(1746, 4972)
@@ -1969,3 +1969,105 @@ position = Vector2(1327, 763)
 
 [node name="Angler5" parent="." instance=ExtResource("21_x8fwf")]
 position = Vector2(-2119, 7511)
+
+[node name="Fish2" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(-2657, 2142)
+
+[node name="Fish3" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(5402, 2009)
+
+[node name="Fish4" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(5409, 1639)
+
+[node name="Fish5" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(5446, 218)
+
+[node name="Fish6" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(5387, -219)
+
+[node name="Fish7" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(5291, 691)
+
+[node name="Fish8" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(5091, 1039)
+
+[node name="Fish9" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(753, -667)
+
+[node name="Fish10" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(-1718, 250)
+
+[node name="Fish11" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(2288, 1174)
+
+[node name="Fish12" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(2080, 324)
+
+[node name="Fish13" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(2208, -288)
+
+[node name="Fish14" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(-287, 752)
+
+[node name="Fish15" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(2679, -1181)
+
+[node name="Fish16" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(-2005, -618)
+
+[node name="Fish17" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(3528, 392)
+
+[node name="Fish18" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(3662, -826)
+
+[node name="Fish19" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(1647, 1646)
+
+[node name="Fish20" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(-2248, 1243)
+
+[node name="Fish21" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(-2532, 2763)
+
+[node name="Fish22" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(-2068, 4217)
+
+[node name="Fish23" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(-1567, 5790)
+
+[node name="Fish24" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(626, 3776)
+
+[node name="Fish25" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(5381, 4611)
+
+[node name="Fish26" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(4511, 5004)
+
+[node name="Fish27" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(507, 5242)
+
+[node name="Fish28" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(2342, 5945)
+
+[node name="Fish29" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(5346, 6088)
+
+[node name="Fish30" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(1055, 4634)
+
+[node name="Fish31" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(-933, 6723)
+
+[node name="Fish32" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(956, 7646)
+
+[node name="Fish33" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(5340, 8280)
+
+[node name="Fish34" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(3249, 9203)
+
+[node name="Fish35" parent="." instance=ExtResource("3_m15ng")]
+position = Vector2(-1553, 9795)
