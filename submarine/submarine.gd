@@ -95,7 +95,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.play("idle")
 		$particler.emitting = false
-
+	#print("velo ",velocity.y, " | balast: ", BOUYANCY)
 	move_and_slide()
 
 func set_boyancy_level(boya):
