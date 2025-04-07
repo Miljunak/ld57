@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://chdeuiv1p4ha2" path="res://Background/Fish.tscn" id="3_m15ng"]
 [ext_resource type="Texture2D" uid="uid://dp3wk63h7g5w4" path="res://assets/tiles.png" id="3_rnswd"]
 [ext_resource type="PackedScene" path="res://Background/Bubble.tscn" id="4_m15ng"]
-[ext_resource type="PackedScene" path="res://Background/Grass.tscn" id="5_luk67"]
+[ext_resource type="PackedScene" uid="uid://d7relekaxdgb" path="res://Background/Grass.tscn" id="5_luk67"]
 [ext_resource type="PackedScene" uid="uid://jjein1jjs4xa" path="res://ai/shark.tscn" id="6_so356"]
 [ext_resource type="PackedScene" uid="uid://chbnsk5ncdjqx" path="res://Background/Boulder.tscn" id="7_4ixo8"]
 [ext_resource type="Texture2D" uid="uid://c6osm3dbt8y0o" path="res://assets/Purple coral.png" id="9_qhbto"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" path="res://Background/Boulder2.tscn" id="15_vd4tq"]
 [ext_resource type="PackedScene" uid="uid://cpnvwkafv7388" path="res://ai/octopus.tscn" id="16_gphah"]
 [ext_resource type="Texture2D" uid="uid://c4offmc44of51" path="res://assets/slonce.png" id="17_qlg0r"]
-[ext_resource type="PackedScene" path="res://ai/big_worm.tscn" id="20_bmnky"]
+[ext_resource type="PackedScene" uid="uid://c3ai6dpit5nhy" path="res://ai/big_worm.tscn" id="20_bmnky"]
 [ext_resource type="PackedScene" uid="uid://cx6ewf25an223" path="res://ai/angler.tscn" id="21_x8fwf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hoaoj"]

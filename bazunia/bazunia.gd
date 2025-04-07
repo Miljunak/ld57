@@ -25,7 +25,6 @@ func _ready():
 	$baza_gui/Control/Upgrades/throtle_speed/upgradeProgress.max_value = len(throtel_upgrades)
 	$baza_gui/Control/Upgrades/oxygenTank/upgradeProgress.max_value = len(oxygen_upgrades)
 	$baza_gui/Control/Upgrades/ballast_speed/upgradeProgress.max_value = len(ballast_upgrade)
-	push_warning("NO SUCHA test")
 
 func load_inv():
 	var itList : ItemList= $baza_gui/Control/Items/ItemList
@@ -47,10 +46,19 @@ func _on_area_entered(body: Node2D) -> void:
 		load_inv()
 
 func exit_base():
+	for node in get_tree().get_nodes_in_group("mosnters"):
+		if node is base_monster:
+			node.die()
+			print("monster dies")
+		else:
+			print(node)
+			print("imposter ", node.name)
+	for node in get_tree().get_nodes_in_group("scrap"):
+		node.respawn()
 	my_ui.visible = false
 	base_exited.emit()
 	playerRef.is_absolutely_immune = false
-		
+	
 func _on_area_exited(body: Node2D) -> void:
 	if body.name == "Submariner":
 		player_in_zone = false
@@ -63,9 +71,9 @@ func enter_base():
 	playerRef.is_absolutely_immune = true
 	my_ui.visible = true
 	base_entered.emit()
-	
 
-func _process(delta):
+
+func _process(_delta):
 	if player_in_zone and Input.is_action_just_pressed("interact"):
 		if !my_ui.visible:
 			enter_base()

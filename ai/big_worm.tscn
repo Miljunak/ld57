@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7u6clpxv7lbj"]
+[gd_scene load_steps=9 format=3 uid="uid://c3ai6dpit5nhy"]
 
 [ext_resource type="Script" uid="uid://xkyb46payok2" path="res://ai/big_worm.gd" id="1_2o028"]
-[ext_resource type="Texture2D" uid="uid://bix5dt0xlpp2m" path="res://assets/big-worm-Sheet.png" id="2_pcytj"]
+[ext_resource type="Texture2D" uid="uid://mk4kauddujk7" path="res://assets/big-worm-Sheet.png" id="2_pcytj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpqsc"]
 atlas = ExtResource("2_pcytj")

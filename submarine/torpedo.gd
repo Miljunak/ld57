@@ -10,14 +10,14 @@ const buoyancy = 10
 var last_position = Vector2()
 var tempPos
 
-func setup(pos,dir, str, lifetime):
+func setup(pos,dir, stren, lifetime):
 	direction = dir
-	strength = str
+	strength = stren
 	lifeTime = lifetime
 	tempPos = pos
 
 var launched = false
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#velocity = direction*strength
 	var col = move_and_collide(direction*strength)
 	if col:

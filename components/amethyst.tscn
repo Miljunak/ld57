@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7d5k"]
 radius = 9.0
 
-[node name="amethyst" type="Area2D"]
+[node name="amethyst" type="Area2D" groups=["scrap"]]
 script = ExtResource("1_dwyew")
 scrap_name = "amethyst"
 

@@ -6,7 +6,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7d5k"]
 
-[node name="gold" type="Area2D"]
+[node name="gold" type="Area2D" groups=["scrap"]]
 script = ExtResource("1_taqsx")
 scrap_name = "gold"
 

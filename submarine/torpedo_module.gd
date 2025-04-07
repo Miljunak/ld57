@@ -12,7 +12,7 @@ var TORPEDO_SPEED = 6.5
 var TORPEDO_LIFETIME = 5
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var dir = Vector2.RIGHT
 	if player.velocity.x>0:
 		dir = Vector2.RIGHT

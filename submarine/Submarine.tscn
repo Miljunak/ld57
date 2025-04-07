@@ -13,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://b24a2nre2wnnh" path="res://assets/ui/ballastTank.png" id="5_4167o"]
 [ext_resource type="SpriteFrames" uid="uid://bo2iyso0rvuup" path="res://scenes/waterFrames.tres" id="6_fcveb"]
 [ext_resource type="Texture2D" uid="uid://sh346ei3yayi" path="res://assets/lightmask.png" id="8_my3mo"]
-[ext_resource type="Texture2D" uid="uid://cbh68oyq0bicq" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
-[ext_resource type="Texture2D" uid="uid://bwewj70s7jq40" path="res://assets/broken-screen.png" id="11_namuc"]
-[ext_resource type="AudioStream" uid="uid://cl8ircppdy81y" path="res://assets/sounds/low_health_sfx.mp3" id="13_dcpsv"]
-[ext_resource type="AudioStream" uid="uid://bt32acqcox70n" path="res://assets/sounds/damage_sfx.mp3" id="13_f6nv7"]
-[ext_resource type="Texture2D" uid="uid://bgjiu83unmf0h" path="res://assets/explosion-boom-Sheet.png" id="15_1c0mj"]
-[ext_resource type="PackedScene" path="res://scenes/TutorialControls.tscn" id="19_scl0a"]
+[ext_resource type="Texture2D" uid="uid://ds4cjsv3mn3f5" path="res://assets/slightly-broken-screen.png" id="9_j40ms"]
+[ext_resource type="Texture2D" uid="uid://cq5qv4tqimy0s" path="res://assets/broken-screen.png" id="11_namuc"]
+[ext_resource type="AudioStream" uid="uid://dvmq76dw6gm20" path="res://assets/sounds/low_health_sfx.mp3" id="13_dcpsv"]
+[ext_resource type="AudioStream" uid="uid://r3x00nyjntxi" path="res://assets/sounds/damage_sfx.mp3" id="13_f6nv7"]
+[ext_resource type="Texture2D" uid="uid://rc6jawrqanlu" path="res://assets/explosion-boom-Sheet.png" id="15_1c0mj"]
+[ext_resource type="PackedScene" uid="uid://0firl0efs0i5" path="res://scenes/TutorialControls.tscn" id="19_scl0a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa563"]
 radius = 14.0
