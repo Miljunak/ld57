@@ -46,21 +46,31 @@ func _on_area_entered(body: Node2D) -> void:
 		inv = playerRef.get_node("CollectorModule")
 		load_inv()
 
+func exit_base():
+	my_ui.visible = false
+	base_exited.emit()
+	playerRef.is_absolutely_immune = false
+		
 func _on_area_exited(body: Node2D) -> void:
 	if body.name == "Submariner":
 		player_in_zone = false
-		my_ui.visible = false
-		base_exited.emit()
 		keyHint.visible = false
-		
+		exit_base()
 var playerRef : Submariner = null
 var inv : CollectorModule = null
 
+func enter_base():
+	playerRef.is_absolutely_immune = true
+	my_ui.visible = true
+	base_entered.emit()
+	
+
 func _process(delta):
 	if player_in_zone and Input.is_action_just_pressed("interact"):
-		my_ui.visible = !my_ui.visible
-		if my_ui.visible:
-			base_entered.emit()
+		if !my_ui.visible:
+			enter_base()
+		else:
+			exit_base()
 		
 var engine_upgrades = [{"maxSpeedBonus":1,"cost":100},
 					   {"maxSpeedBonus":1,"cost":200},

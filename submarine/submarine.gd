@@ -27,6 +27,7 @@ const FLICKER_RATE = 0.1
 var shake_timer = 0.0
 const SHAKE_INTENSITY = 10
 const SHAKE_DURATION = 0.2
+var is_absolutely_immune = false
 
 @onready var waterLevel = $Camera2D/Control/tank/waterLevel
 @onready var lever = $Camera2D/Control/lever
@@ -117,7 +118,7 @@ func control_throtel():
 	pass
 
 func apply_damage(amount: int) -> void:
-	if is_immune:
+	if is_immune or is_absolutely_immune:
 		return
 	
 	health -= amount
